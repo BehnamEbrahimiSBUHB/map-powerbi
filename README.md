@@ -5,42 +5,54 @@ Ready-to-use map files for the Power BI **Shape map** visual, covering Swansea a
 - **Format:** TopoJSON, saved as `.json`.
 - **Levels:** Output Area (OA), Lower layer Super Output Area (LSOA), Middle layer Super Output Area (MSOA) and council outline.
 - **Versions:** 2001, 2011 and 2021 census boundaries. The council outline is the May 2026 release.
+- **Map types:** the real boundaries, plus two hex maps where every area is one equal-sized hexagon.
 - **Source:** [ONS Open Geography Portal](https://geoportal.statistics.gov.uk), downloaded on 10/11/2026.
+
+**Try the maps in your browser:** [codewithbehnam.github.io/map-powerbi](https://codewithbehnam.github.io/map-powerbi/). The dashboard shows every file with sample data and lets you switch between map types.
 
 ## Previews
 
-Blue is Swansea. Orange is Neath Port Talbot.
+2021 boundaries. Blue is Swansea. Orange is Neath Port Talbot.
 
-| | OA | LSOA | MSOA |
+| | Geographic | Hexmap | Geogrid |
 |---|---|---|---|
-| **2001** | <img src="images/2001/swansea-and-neath-port-talbot-oa-2001.svg" width="260" alt="2001 Output Areas for Swansea and Neath Port Talbot"> | <img src="images/2001/swansea-and-neath-port-talbot-lsoa-2001.svg" width="260" alt="2001 LSOAs for Swansea and Neath Port Talbot"> | <img src="images/2001/swansea-and-neath-port-talbot-msoa-2001.svg" width="260" alt="2001 MSOAs for Swansea and Neath Port Talbot"> |
-| **2011** | <img src="images/2011/swansea-and-neath-port-talbot-oa-2011.svg" width="260" alt="2011 Output Areas for Swansea and Neath Port Talbot"> | <img src="images/2011/swansea-and-neath-port-talbot-lsoa-2011.svg" width="260" alt="2011 LSOAs for Swansea and Neath Port Talbot"> | <img src="images/2011/swansea-and-neath-port-talbot-msoa-2011.svg" width="260" alt="2011 MSOAs for Swansea and Neath Port Talbot"> |
-| **2021** | <img src="images/2021/swansea-and-neath-port-talbot-oa-2021.svg" width="260" alt="2021 Output Areas for Swansea and Neath Port Talbot"> | <img src="images/2021/swansea-and-neath-port-talbot-lsoa-2021.svg" width="260" alt="2021 LSOAs for Swansea and Neath Port Talbot"> | <img src="images/2021/swansea-and-neath-port-talbot-msoa-2021.svg" width="260" alt="2021 MSOAs for Swansea and Neath Port Talbot"> |
+| **MSOA** | <img src="images/2021/msoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-msoa-2021.svg" width="250" alt="2021 MSOAs, real boundaries"> | <img src="images/2021/msoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-msoa-2021-hexmap.svg" width="250" alt="2021 MSOAs as a hexmap"> | <img src="images/2021/msoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-msoa-2021-geogrid.svg" width="250" alt="2021 MSOAs as a geogrid"> |
+| **LSOA** | <img src="images/2021/lsoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-lsoa-2021.svg" width="250" alt="2021 LSOAs, real boundaries"> | <img src="images/2021/lsoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-lsoa-2021-hexmap.svg" width="250" alt="2021 LSOAs as a hexmap"> | <img src="images/2021/lsoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-lsoa-2021-geogrid.svg" width="250" alt="2021 LSOAs as a geogrid"> |
+| **OA** | <img src="images/2021/oa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-oa-2021.svg" width="250" alt="2021 Output Areas, real boundaries"> | <img src="images/2021/oa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-oa-2021-hexmap.svg" width="250" alt="2021 Output Areas as a hexmap"> | Not built |
 
-Council outline:
+| Map type | What it shows |
+|---|---|
+| **Geographic** | The real boundaries. |
+| **Hexmap** | One hexagon per area, close to its real place. Each council stays in one piece. Made with [hexmap](https://github.com/mitchelloharawild/hexmap). |
+| **Geogrid** | One hexagon per area on a regular grid. The two councils can mix along their border. Made with [geogrid](https://github.com/jbaileyh/geogrid). |
 
-<img src="images/council/swansea-and-neath-port-talbot-council-2026.svg" width="260" alt="Council outlines of Swansea and Neath Port Talbot">
-
-Every map file has a matching image in [`images/`](images), including the single-council files.
+Geogrid is not built for Output Areas, because it would take hours per file. Every map file has a matching image in [`images/`](images).
 
 ## Pick a file
 
-Each cell links to the map file. The number is how many areas the file holds.
+Files follow one pattern:
+
+```text
+maps/<version>/<level>/<council>/<map type>/<file>.json
+```
+
+Each cell links to the map files. The number is the geographic map and shows how many areas it holds.
 
 | Level | Version | Swansea | Neath Port Talbot | Both councils |
 |---|---|---|---|---|
-| OA | 2001 | [759](maps/2001/swansea-oa-2001.json) | [466](maps/2001/neath-port-talbot-oa-2001.json) | [1,225](maps/2001/swansea-and-neath-port-talbot-oa-2001.json) |
-| LSOA | 2001 | [147](maps/2001/swansea-lsoa-2001.json) | [91](maps/2001/neath-port-talbot-lsoa-2001.json) | [238](maps/2001/swansea-and-neath-port-talbot-lsoa-2001.json) |
-| MSOA | 2001 | [31](maps/2001/swansea-msoa-2001.json) | [19](maps/2001/neath-port-talbot-msoa-2001.json) | [50](maps/2001/swansea-and-neath-port-talbot-msoa-2001.json) |
-| OA | 2011 | [792](maps/2011/swansea-oa-2011.json) | [473](maps/2011/neath-port-talbot-oa-2011.json) | [1,265](maps/2011/swansea-and-neath-port-talbot-oa-2011.json) |
-| LSOA | 2011 | [148](maps/2011/swansea-lsoa-2011.json) | [91](maps/2011/neath-port-talbot-lsoa-2011.json) | [239](maps/2011/swansea-and-neath-port-talbot-lsoa-2011.json) |
-| MSOA | 2011 | [31](maps/2011/swansea-msoa-2011.json) | [19](maps/2011/neath-port-talbot-msoa-2011.json) | [50](maps/2011/swansea-and-neath-port-talbot-msoa-2011.json) |
-| OA | 2021 | [806](maps/2021/swansea-oa-2021.json) | [485](maps/2021/neath-port-talbot-oa-2021.json) | [1,291](maps/2021/swansea-and-neath-port-talbot-oa-2021.json) |
-| LSOA | 2021 | [150](maps/2021/swansea-lsoa-2021.json) | [90](maps/2021/neath-port-talbot-lsoa-2021.json) | [240](maps/2021/swansea-and-neath-port-talbot-lsoa-2021.json) |
-| MSOA | 2021 | [30](maps/2021/swansea-msoa-2021.json) | [18](maps/2021/neath-port-talbot-msoa-2021.json) | [48](maps/2021/swansea-and-neath-port-talbot-msoa-2021.json) |
-| Council | 2026 | [1](maps/council/swansea-council-2026.json) | [1](maps/council/neath-port-talbot-council-2026.json) | [2](maps/council/swansea-and-neath-port-talbot-council-2026.json) |
+| OA | 2001 | [759](maps/2001/oa/swansea/geographic/swansea-oa-2001.json) · [hexmap](maps/2001/oa/swansea/hexmap/swansea-oa-2001-hexmap.json) | [466](maps/2001/oa/neath-port-talbot/geographic/neath-port-talbot-oa-2001.json) · [hexmap](maps/2001/oa/neath-port-talbot/hexmap/neath-port-talbot-oa-2001-hexmap.json) | [1,225](maps/2001/oa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-oa-2001.json) · [hexmap](maps/2001/oa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-oa-2001-hexmap.json) |
+| LSOA | 2001 | [147](maps/2001/lsoa/swansea/geographic/swansea-lsoa-2001.json) · [hexmap](maps/2001/lsoa/swansea/hexmap/swansea-lsoa-2001-hexmap.json) · [geogrid](maps/2001/lsoa/swansea/geogrid/swansea-lsoa-2001-geogrid.json) | [91](maps/2001/lsoa/neath-port-talbot/geographic/neath-port-talbot-lsoa-2001.json) · [hexmap](maps/2001/lsoa/neath-port-talbot/hexmap/neath-port-talbot-lsoa-2001-hexmap.json) · [geogrid](maps/2001/lsoa/neath-port-talbot/geogrid/neath-port-talbot-lsoa-2001-geogrid.json) | [238](maps/2001/lsoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-lsoa-2001.json) · [hexmap](maps/2001/lsoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-lsoa-2001-hexmap.json) · [geogrid](maps/2001/lsoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-lsoa-2001-geogrid.json) |
+| MSOA | 2001 | [31](maps/2001/msoa/swansea/geographic/swansea-msoa-2001.json) · [hexmap](maps/2001/msoa/swansea/hexmap/swansea-msoa-2001-hexmap.json) · [geogrid](maps/2001/msoa/swansea/geogrid/swansea-msoa-2001-geogrid.json) | [19](maps/2001/msoa/neath-port-talbot/geographic/neath-port-talbot-msoa-2001.json) · [hexmap](maps/2001/msoa/neath-port-talbot/hexmap/neath-port-talbot-msoa-2001-hexmap.json) · [geogrid](maps/2001/msoa/neath-port-talbot/geogrid/neath-port-talbot-msoa-2001-geogrid.json) | [50](maps/2001/msoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-msoa-2001.json) · [hexmap](maps/2001/msoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-msoa-2001-hexmap.json) · [geogrid](maps/2001/msoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-msoa-2001-geogrid.json) |
+| OA | 2011 | [792](maps/2011/oa/swansea/geographic/swansea-oa-2011.json) · [hexmap](maps/2011/oa/swansea/hexmap/swansea-oa-2011-hexmap.json) | [473](maps/2011/oa/neath-port-talbot/geographic/neath-port-talbot-oa-2011.json) · [hexmap](maps/2011/oa/neath-port-talbot/hexmap/neath-port-talbot-oa-2011-hexmap.json) | [1,265](maps/2011/oa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-oa-2011.json) · [hexmap](maps/2011/oa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-oa-2011-hexmap.json) |
+| LSOA | 2011 | [148](maps/2011/lsoa/swansea/geographic/swansea-lsoa-2011.json) · [hexmap](maps/2011/lsoa/swansea/hexmap/swansea-lsoa-2011-hexmap.json) · [geogrid](maps/2011/lsoa/swansea/geogrid/swansea-lsoa-2011-geogrid.json) | [91](maps/2011/lsoa/neath-port-talbot/geographic/neath-port-talbot-lsoa-2011.json) · [hexmap](maps/2011/lsoa/neath-port-talbot/hexmap/neath-port-talbot-lsoa-2011-hexmap.json) · [geogrid](maps/2011/lsoa/neath-port-talbot/geogrid/neath-port-talbot-lsoa-2011-geogrid.json) | [239](maps/2011/lsoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-lsoa-2011.json) · [hexmap](maps/2011/lsoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-lsoa-2011-hexmap.json) · [geogrid](maps/2011/lsoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-lsoa-2011-geogrid.json) |
+| MSOA | 2011 | [31](maps/2011/msoa/swansea/geographic/swansea-msoa-2011.json) · [hexmap](maps/2011/msoa/swansea/hexmap/swansea-msoa-2011-hexmap.json) · [geogrid](maps/2011/msoa/swansea/geogrid/swansea-msoa-2011-geogrid.json) | [19](maps/2011/msoa/neath-port-talbot/geographic/neath-port-talbot-msoa-2011.json) · [hexmap](maps/2011/msoa/neath-port-talbot/hexmap/neath-port-talbot-msoa-2011-hexmap.json) · [geogrid](maps/2011/msoa/neath-port-talbot/geogrid/neath-port-talbot-msoa-2011-geogrid.json) | [50](maps/2011/msoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-msoa-2011.json) · [hexmap](maps/2011/msoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-msoa-2011-hexmap.json) · [geogrid](maps/2011/msoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-msoa-2011-geogrid.json) |
+| OA | 2021 | [806](maps/2021/oa/swansea/geographic/swansea-oa-2021.json) · [hexmap](maps/2021/oa/swansea/hexmap/swansea-oa-2021-hexmap.json) | [485](maps/2021/oa/neath-port-talbot/geographic/neath-port-talbot-oa-2021.json) · [hexmap](maps/2021/oa/neath-port-talbot/hexmap/neath-port-talbot-oa-2021-hexmap.json) | [1,291](maps/2021/oa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-oa-2021.json) · [hexmap](maps/2021/oa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-oa-2021-hexmap.json) |
+| LSOA | 2021 | [150](maps/2021/lsoa/swansea/geographic/swansea-lsoa-2021.json) · [hexmap](maps/2021/lsoa/swansea/hexmap/swansea-lsoa-2021-hexmap.json) · [geogrid](maps/2021/lsoa/swansea/geogrid/swansea-lsoa-2021-geogrid.json) | [90](maps/2021/lsoa/neath-port-talbot/geographic/neath-port-talbot-lsoa-2021.json) · [hexmap](maps/2021/lsoa/neath-port-talbot/hexmap/neath-port-talbot-lsoa-2021-hexmap.json) · [geogrid](maps/2021/lsoa/neath-port-talbot/geogrid/neath-port-talbot-lsoa-2021-geogrid.json) | [240](maps/2021/lsoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-lsoa-2021.json) · [hexmap](maps/2021/lsoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-lsoa-2021-hexmap.json) · [geogrid](maps/2021/lsoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-lsoa-2021-geogrid.json) |
+| MSOA | 2021 | [30](maps/2021/msoa/swansea/geographic/swansea-msoa-2021.json) · [hexmap](maps/2021/msoa/swansea/hexmap/swansea-msoa-2021-hexmap.json) · [geogrid](maps/2021/msoa/swansea/geogrid/swansea-msoa-2021-geogrid.json) | [18](maps/2021/msoa/neath-port-talbot/geographic/neath-port-talbot-msoa-2021.json) · [hexmap](maps/2021/msoa/neath-port-talbot/hexmap/neath-port-talbot-msoa-2021-hexmap.json) · [geogrid](maps/2021/msoa/neath-port-talbot/geogrid/neath-port-talbot-msoa-2021-geogrid.json) | [48](maps/2021/msoa/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-msoa-2021.json) · [hexmap](maps/2021/msoa/swansea-and-neath-port-talbot/hexmap/swansea-and-neath-port-talbot-msoa-2021-hexmap.json) · [geogrid](maps/2021/msoa/swansea-and-neath-port-talbot/geogrid/swansea-and-neath-port-talbot-msoa-2021-geogrid.json) |
+| Council | 2026 | [1](maps/2026/council/swansea/geographic/swansea-council-2026.json) | [1](maps/2026/council/neath-port-talbot/geographic/neath-port-talbot-council-2026.json) | [2](maps/2026/council/swansea-and-neath-port-talbot/geographic/swansea-and-neath-port-talbot-council-2026.json) |
 
-To download one file: open it on GitHub, then select **Download raw file**.
+
+To download one file, open it on GitHub and select **Download raw file**.
 
 **Use the version that matches your data.** Area codes changed between censuses. 2021 census data needs a 2021 map, 2011 data needs a 2011 map, and so on.
 
@@ -54,66 +66,42 @@ You need a table with one row per area and a column holding the area code, for e
 4. Select the visual. In the **Visualizations** pane, select **Format visual** and expand **Map settings**.
 5. Set **Map type** to **Custom map**.
 6. Select **Add a map type** and choose the `.json` file you downloaded.
-7. Set **Projection** to **Mercator**. Equirectangular makes the area look stretched sideways at this latitude.
+7. Set **Projection** to **Mercator**.
 8. Select **View map type key** and check that the codes match your column.
 
-These steps follow Microsoft's guide: [Create shape map visualizations in Power BI](https://learn.microsoft.com/en-us/power-bi/visuals/desktop-shape-map).
+The full guide covers map keys, loading by URL and fixes for common problems: [Use the maps in Power BI](docs/power-bi-guide.md).
 
-### Load by URL instead
+## Sample data
 
-Power BI can also read a map straight from a web address, so you do not need to download anything.
+[`data/synthetic/`](data/synthetic) holds one CSV per level and version, for example [`synthetic-lsoa-2021.csv`](data/synthetic/synthetic-lsoa-2021.csv). Each has the area code, the council and three measures.
 
-1. In **Map settings**, set **Type** to **URL**.
-2. Paste the raw address of a file, for example:
+**The numbers are made up.** They are not real statistics. Use them to try a map before you connect your own data.
 
-   ```text
-   https://raw.githubusercontent.com/CodeWithBehnam/map-powerbi/main/maps/2021/swansea-and-neath-port-talbot-lsoa-2021.json
-   ```
+## Guides
 
-This route has not been tested from this repository. If it fails, download the file and use the steps above.
-
-## Map keys
-
-Power BI matches your **Location** column against these properties in each file.
-
-| Level | Version | Code | Name | Welsh name |
-|---|---|---|---|---|
-| OA | 2001 | `OA01CD` | none | none |
-| OA | 2011 | `OA11CD` | none | none |
-| OA | 2021 | `OA21CD` | none | none |
-| LSOA | 2001 | `LSOA01CD` | `LSOA01NM` | `LSOA01NMW` |
-| LSOA | 2011 | `LSOA11CD` | `LSOA11NM` | `LSOA11NMW` |
-| LSOA | 2021 | `LSOA21CD` | `LSOA21NM` | `LSOA21NMW` |
-| MSOA | 2001 | `MSOA01CD` | `MSOA01NM` | `MSOA01NMW` |
-| MSOA | 2011 | `MSOA11CD` | `MSOA11NM` | `MSOA11NMW` |
-| MSOA | 2021 | `MSOA21CD` | `MSOA21NM` | `MSOA21NMW` |
-| Council | 2026 | `LAD26CD` | `LAD26NM` | `LAD26NMW` |
-
-Example values: `W01000736`, `Swansea 028A`, `Abertawe 028A`.
-
-Match on the code where you can. Codes are unique and stable. Output Areas have codes only.
-
-## If something does not work
-
-| Problem | Fix |
+| Guide | Read it when |
 |---|---|
-| There is no Shape map icon | Go to **File > Options and settings > Options > Preview features**, turn on **Shape map visual** and restart Power BI Desktop. |
-| The file picker does not show the file | Rename the file so it ends in `.topojson`. The content stays the same. |
-| The map is blank or all one colour | Open **View map type key** and compare the codes with your column. Check that the map version matches your data and that the column type is **Text**. |
-| Some areas stay grey | Those codes are missing from your data, or belong to a different version. |
-| The map is slow | Use a single-council file, or a higher level such as MSOA. The Shape map visual plots at most 1,500 areas. |
+| [Use the maps in Power BI](docs/power-bi-guide.md) | You want to load a map and colour it with data. |
+| [What a map file needs](docs/map-requirements.md) | A map will not load, or you are checking a file from elsewhere. |
+| [How to use mapshaper](docs/mapshaper-guide.md) | You are new to mapshaper, the tool that builds these files. |
+| [mapshaper cheat sheet](docs/mapshaper-cheat-sheet.md) | You know mapshaper and need a command. |
+| [Prepare your own map](docs/your-own-map.md) | You have your own JSON map and want it ready for Power BI, as a hexmap or as a geogrid. |
 
 ## Rebuild the files
 
-You only need this to refresh the data from ONS. It needs [Bun](https://bun.sh).
+You only need this to refresh the data from ONS or change how the maps are made. It needs [Bun](https://bun.sh). The hex maps also need R with four packages: see [Install the R packages](docs/your-own-map.md#install-the-r-packages).
 
 ```sh
 bun install
-bun run build          # reuse downloads in .cache/
-bun run build:refresh  # download everything again
+bun run build          # rebuild maps/ and images/, reusing .cache/
+bun run build:rehex    # also compute the hexagons again (slow)
+bun run build:refresh  # download from ONS again and rebuild everything
+bun run data           # rewrite the synthetic sample data
+bun run check          # validate every map, image and sample file
+bun run site:serve     # build the dashboard and serve it locally
 ```
 
-The build downloads each layer from the ONS ArcGIS service, checks the number of areas against the service's own count, and writes `maps/` and `images/` with [mapshaper](https://github.com/mbloch/mapshaper).
+The build downloads each layer from the ONS ArcGIS service, checks the number of areas against the service's own count, computes the hexagons with R, and writes `maps/` and `images/` with [mapshaper](https://github.com/mbloch/mapshaper).
 
 To move to a newer ONS release, edit the `service` name in [`scripts/sources.ts`](scripts/sources.ts), then run `bun run build:refresh`.
 
@@ -134,7 +122,13 @@ All layers are the ONS "BGC" versions: generalised to 20 m and clipped to the co
 | MSOA | 2021 | `Middle_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V3` |
 | Council | 2026 | `Local_Authority_Districts_May_2026_Boundaries_UK_BGC` |
 
+## Contributing
+
+Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Licence and attribution
+
+The code and guides are under the [MIT licence](LICENSE).
 
 The boundary data is published under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). If you publish a map made with these files, include:
 
