@@ -1,0 +1,64 @@
+CLUSTERCD,CLUSTERNM,country,population,median_age,index_score
+CC101,Anglesey,Wales,43107,46.1,27.6
+CC102,Arfon,Wales,55570,47.8,33.3
+CC103,Central & South Denbighshire,Wales,57221,42.4,49.7
+CC104,Conwy East,Wales,60200,42,17.8
+CC105,Conwy West,Wales,56014,43.4,32.1
+CC106,North East Flintshire,Wales,49836,39.5,47.4
+CC107,Dwyfor & North Meirionnydd,Wales,47621,42.8,5
+CC108,North West Flintshire,Wales,60606,41.5,43.3
+CC109,South Meirionnydd,Wales,39278,47,23.2
+CC110,South Flintshire,Wales,48483,39.2,63.4
+CC111,North Denbighshire,Wales,58259,43.4,25.9
+CC112,South Wrexham,Wales,47794,33.6,61.8
+CC113,North & West Wrexham,Wales,53484,32.8,53.7
+CC114,Central Wrexham,Wales,53177,33.7,66.8
+CC201,Amman Gwendraeth,Wales,44356,40,52.9
+CC202,Llanelli,Wales,40890,42.5,45.5
+CC203,North Ceredigion,Wales,42519,42.3,14.1
+CC204,North Pembrokeshire,Wales,50882,43.5,29.8
+CC205,South Ceredigion,Wales,39447,41.7,12.7
+CC206,South Pembrokeshire,Wales,58062,41.4,13.3
+CC207,Tywi / Taf,Wales,44218,43.2,42.8
+CC301,Afan,Wales,61070,33.1,64.1
+CC302,BayHealth,Wales,57526,36.3,53.2
+CC306,CityHealth,Wales,61401,32.1,58
+CC307,Cwmtawe,Wales,41088,34.5,63.9
+CC308,Llwchwr,Wales,52555,37,45.1
+CC309,Neath,Wales,50321,34.6,85.3
+CC310,Penderi,Wales,53216,31.2,66.3
+CC311,Upper Valleys,Wales,50295,33.8,59.1
+CC411,Cardiff East,Wales,44245,35.3,66
+CC412,Cardiff South East,Wales,40373,31.3,86.4
+CC413,City & Cardiff South,Wales,46952,36,69.7
+CC421,Cardiff North,Wales,55703,34.3,67.3
+CC422,Cardiff South West,Wales,47637,36.8,59.4
+CC423,Cardiff West,Wales,47571,36.2,51
+CC431,Central Vale,Wales,53918,38.6,45
+CC432,Eastern Vale,Wales,38851,33,77.2
+CC433,Western Vale,Wales,37810,36.8,56.1
+CC501,North Cynon,Wales,41508,37.8,29.2
+CC502,North Merthyr Tydfil,Wales,61795,42.3,41.1
+CC503,North Rhondda,Wales,41176,39.4,49.5
+CC504,North Taf Ely,Wales,56689,38.9,50.3
+CC505,South Cynon,Wales,39424,37.4,24.8
+CC506,South Merthyr Tydfil,Wales,54592,38.7,47.8
+CC507,South Rhondda,Wales,53482,40.3,47.7
+CC508,South Taf Ely,Wales,59134,37.1,50.4
+CC509,Bridgend East,Wales,55313,40,37.8
+CC510,Bridgend North,Wales,52135,38.9,62.3
+CC511,Bridgend West,Wales,55991,33.6,54.7
+CC601,Blaenau Gwent East,Wales,40875,36.6,32
+CC602,Blaenau Gwent West,Wales,52104,42,37.4
+CC603,Caerphilly East,Wales,50602,34.8,57.1
+CC604,Caerphilly North,Wales,41150,36.9,54.2
+CC605,Caerphilly South,Wales,41257,33.5,50.6
+CC606,Monmouthshire North,Wales,48866,41.9,33.3
+CC607,Monmouthshire South,Wales,38836,38.2,52.2
+CC609,Newport East,Wales,54611,35.7,66.6
+CC610,Newport West,Wales,39951,34,72.5
+CC611,Torfaen North,Wales,40143,35,52.2
+CC612,Torfaen South,Wales,46289,31.9,59.6
+CC701,Mid Powys,Wales,41243,44,16.5
+CC702,North Powys,Wales,38829,46.2,19.1
+CC703,South Powys,Wales,56183,44.5,22.9

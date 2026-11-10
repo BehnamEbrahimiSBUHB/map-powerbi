@@ -9,6 +9,8 @@
     "build:refresh": "bun run scripts/build.ts --refresh",
     "build:rehex": "bun run scripts/build.ts --rehex",
     "data": "bun run scripts/synthetic.ts",
+    "wimd": "bun run scripts/wimd.ts",
+    "catalogue": "bun run scripts/catalogue.ts",
     "check": "bun run scripts/check.ts",
     "typecheck": "tsc --noEmit",
     "site:build": "bun run scripts/site.ts",

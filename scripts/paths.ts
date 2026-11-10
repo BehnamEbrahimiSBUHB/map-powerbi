@@ -1,21 +1,25 @@
 // Where each generated file lives. Shared by the build, the checks and the
 // dashboard, so it must stay free of Node-only imports.
 
-import { COUNCILS, HEX_LEVELS, HEX_METHODS, type MapType, type Source } from "./sources.ts";
+import {
+  MAP_SETS,
+  type Area,
+  type Level,
+  type MapSet,
+  type MapType,
+  type Source,
+} from "./sources.ts";
 
-/** Folder and file name for the files that hold every council. */
-export const COMBINED_SLUG = COUNCILS.map((council) => council.slug).join("-and-");
+/** One source cut to one area. It becomes one map file per type of its set. */
+export interface MapGroup {
+  readonly set: MapSet;
+  readonly source: Source;
+  readonly area: Area;
+}
 
-/** One group per council, then the combined group. */
-export const GROUP_SLUGS: readonly string[] = [
-  ...COUNCILS.map((council) => council.slug),
-  COMBINED_SLUG,
-];
-
-export const mapTypes = (source: Source): readonly MapType[] => [
-  "geographic",
-  ...HEX_METHODS.filter((method) => HEX_LEVELS[method].includes(source.level)),
-];
+export const MAP_GROUPS: readonly MapGroup[] = MAP_SETS.flatMap((set) =>
+  set.sources.flatMap((source) => set.areas.map((area) => ({ set, source, area }))),
+);
 
 /**
  * Path without root folder or extension, for example
@@ -27,5 +31,11 @@ export const outputStem = (source: Source, slug: string, type: MapType): string 
   return `${source.year}/${source.level}/${slug}/${type}/${slug}-${source.level}-${source.year}${suffix}`;
 };
 
-export const syntheticFile = (source: Source): string =>
-  `synthetic-${source.level}-${source.year}.csv`;
+/** Sample data is shared by every map of the same level and year. */
+export const syntheticFile = (level: Level, year: number): string =>
+  `synthetic-${level}-${year}.csv`;
+
+/** Welsh Index of Multiple Deprivation 2025, one row per 2021 LSOA in Wales. */
+export const WIMD_PATH = "data/wimd/wimd-2025-lsoa.csv";
+export const WIMD_LEVEL: Level = "lsoa";
+export const WIMD_YEAR = 2021;

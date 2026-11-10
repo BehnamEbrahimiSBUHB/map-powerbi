@@ -1,0 +1,381 @@
+LAD11CD,LAD11NM,country,population,median_age,index_score
+E06000001,Hartlepool,England,152240,41.1,16.8
+E06000002,Middlesbrough,England,127788,46.7,28.5
+E06000003,Redcar and Cleveland,England,134304,44.2,13.4
+E06000004,Stockton-on-Tees,England,150598,45.2,32.5
+E06000005,Darlington,England,188691,43.8,41.6
+E06000006,Halton,England,208606,42.8,21
+E06000007,Warrington,England,175412,41.3,48.5
+E06000008,Blackburn with Darwen,England,148872,43,50.2
+E06000009,Blackpool,England,193656,42.1,23.2
+E06000010,"Kingston upon Hull, City of",England,209587,43.8,20.4
+E06000011,East Riding of Yorkshire,England,187160,43.3,11
+E06000012,North East Lincolnshire,England,161007,44.3,19.5
+E06000013,North Lincolnshire,England,207170,41.8,26.8
+E06000014,York,England,193264,40.8,31.3
+E06000015,Derby,England,162620,42.3,27.5
+E06000016,Leicester,England,166162,45.1,34.8
+E06000017,Rutland,England,203751,42.6,30.4
+E06000018,Nottingham,England,194608,46.7,34.6
+E06000019,"Herefordshire, County of",England,159454,41.5,26.3
+E06000020,Telford and Wrekin,England,127677,43.4,32.9
+E06000021,Stoke-on-Trent,England,185714,41.8,16.7
+E06000022,Bath and North East Somerset,England,133995,34.6,57.3
+E06000023,"Bristol, City of",England,148799,32.9,68.7
+E06000024,North Somerset,England,143330,34.8,66
+E06000025,South Gloucestershire,England,129356,38.2,47.3
+E06000026,Plymouth,England,143570,44.3,11
+E06000027,Torbay,England,197271,43.7,21.9
+E06000028,Bournemouth,England,148355,43.1,8.7
+E06000029,Poole,England,168807,42.8,8.3
+E06000030,Swindon,England,192655,44.6,11.7
+E06000031,Peterborough,England,147333,44.1,7.1
+E06000032,Luton,England,159072,46,13.2
+E06000033,Southend-on-Sea,England,142238,43.3,17.5
+E06000034,Thurrock,England,170789,43.7,47.1
+E06000035,Medway,England,210111,43.2,17.7
+E06000036,Bracknell Forest,England,133358,40.7,40.5
+E06000037,West Berkshire,England,185195,43.6,11.4
+E06000038,Reading,England,173139,42.9,16.7
+E06000039,Slough,England,163888,39.5,27.8
+E06000040,Windsor and Maidenhead,England,179271,42.1,32.1
+E06000041,Wokingham,England,165422,46.2,17
+E06000042,Milton Keynes,England,132602,46.7,24.1
+E06000043,Brighton and Hove,England,128683,45.6,8.6
+E06000044,Portsmouth,England,159595,48.1,11.1
+E06000045,Southampton,England,144020,43.7,14.6
+E06000046,Isle of Wight,England,208667,48.3,15.9
+E06000047,County Durham,England,195647,43.6,24.4
+E06000048,Northumberland,England,201389,40.8,15.3
+E06000049,Cheshire East,England,147312,43.8,35.3
+E06000050,Cheshire West and Chester,England,202290,36.9,33.3
+E06000051,Shropshire,England,152938,42.7,34.2
+E06000052,Cornwall,England,152492,47.8,9.1
+E06000053,Isles of Scilly,England,202627,43.5,21
+E06000054,Wiltshire,England,152597,40.6,16.1
+E06000055,Bedford,England,162864,45.1,26.7
+E06000056,Central Bedfordshire,England,181231,43.1,11.2
+E07000004,Aylesbury Vale,England,190689,44.3,15.6
+E07000005,Chiltern,England,211436,42.5,28.1
+E07000006,South Bucks,England,128506,42.3,42.3
+E07000007,Wycombe,England,142073,44.4,32.7
+E07000008,Cambridge,England,151194,47.6,31.1
+E07000009,East Cambridgeshire,England,206095,43.9,14.4
+E07000010,Fenland,England,165686,48.1,13.5
+E07000011,Huntingdonshire,England,136073,45.8,11.1
+E07000012,South Cambridgeshire,England,210107,45.9,7.5
+E07000026,Allerdale,England,175422,43,31.5
+E07000027,Barrow-in-Furness,England,185839,48,5.8
+E07000028,Carlisle,England,189278,47.4,21.4
+E07000029,Copeland,England,160634,42.8,20.4
+E07000030,Eden,England,155665,45.3,30.6
+E07000031,South Lakeland,England,136530,42.6,17
+E07000032,Amber Valley,England,130097,41.9,29
+E07000033,Bolsover,England,153656,43.8,20.1
+E07000034,Chesterfield,England,154956,42.4,9.1
+E07000035,Derbyshire Dales,England,191054,41.2,21.4
+E07000036,Erewash,England,194705,44.8,11.7
+E07000037,High Peak,England,195961,39.4,53
+E07000038,North East Derbyshire,England,166128,43.9,31.2
+E07000039,South Derbyshire,England,189044,39.9,36.7
+E07000040,East Devon,England,195361,46.4,23.7
+E07000041,Exeter,England,159266,44.4,28.2
+E07000042,Mid Devon,England,142863,47.8,31.3
+E07000043,North Devon,England,205025,45,35.3
+E07000044,South Hams,England,198441,45.8,8.4
+E07000045,Teignbridge,England,152526,48.2,18.2
+E07000046,Torridge,England,174566,43.8,4.8
+E07000047,West Devon,England,180525,47.9,21.8
+E07000048,Christchurch,England,185918,43.6,5.4
+E07000049,East Dorset,England,174812,42.3,33.5
+E07000050,North Dorset,England,198328,43.2,22.1
+E07000051,Purbeck,England,186532,45.3,10.3
+E07000052,West Dorset,England,173984,46,21.1
+E07000053,Weymouth and Portland,England,131132,46.7,10.5
+E07000061,Eastbourne,England,127585,43.7,6
+E07000062,Hastings,England,177759,46.8,11.9
+E07000063,Lewes,England,189603,43.1,35.8
+E07000064,Rother,England,194271,42.3,5.2
+E07000065,Wealden,England,137245,44.5,15.2
+E07000066,Basildon,England,196036,43.9,20
+E07000067,Braintree,England,138961,42.6,33.1
+E07000068,Brentwood,England,150833,41.8,23.9
+E07000069,Castle Point,England,128338,41.6,33.4
+E07000070,Chelmsford,England,204091,40.7,21.2
+E07000071,Colchester,England,193284,45.2,18
+E07000072,Epping Forest,England,152914,43,46.8
+E07000073,Harlow,England,183443,41.6,47.1
+E07000074,Maldon,England,137351,47.3,7.2
+E07000075,Rochford,England,170204,44.5,10.9
+E07000076,Tendring,England,207509,46.6,23.2
+E07000077,Uttlesford,England,170945,42.9,27.5
+E07000078,Cheltenham,England,185689,44.5,17.9
+E07000079,Cotswold,England,199836,45.9,28.9
+E07000080,Forest of Dean,England,162776,44.9,17.5
+E07000081,Gloucester,England,186503,44.8,26.7
+E07000082,Stroud,England,190371,44.1,41.4
+E07000083,Tewkesbury,England,135839,41.3,7.9
+E07000084,Basingstoke and Deane,England,197833,44.1,33.2
+E07000085,East Hampshire,England,182580,43.2,7.8
+E07000086,Eastleigh,England,138319,45.3,26.3
+E07000087,Fareham,England,180945,45.1,23.7
+E07000088,Gosport,England,140655,47.6,26.9
+E07000089,Hart,England,183304,45.5,16
+E07000090,Havant,England,138237,45.4,12.3
+E07000091,New Forest,England,177440,47.6,20.8
+E07000092,Rushmoor,England,156071,45.5,17.4
+E07000093,Test Valley,England,181885,47,16.4
+E07000094,Winchester,England,190470,43.1,7
+E07000095,Broxbourne,England,169361,40.2,33.2
+E07000096,Dacorum,England,182730,40.5,32.7
+E07000097,East Hertfordshire,England,203189,41.7,24.7
+E07000098,Hertsmere,England,188574,38,44.1
+E07000099,North Hertfordshire,England,201740,44.6,38.5
+E07000100,St Albans,England,179868,38.3,39.5
+E07000101,Stevenage,England,154634,45.4,26.4
+E07000102,Three Rivers,England,200357,40.7,52.4
+E07000103,Watford,England,131640,37.5,30.4
+E07000104,Welwyn Hatfield,England,155078,42.8,22.9
+E07000105,Ashford,England,170059,44.4,30.5
+E07000106,Canterbury,England,184152,42.4,16.9
+E07000107,Dartford,England,170247,39.9,48.4
+E07000108,Dover,England,158663,46.2,26
+E07000109,Gravesham,England,158331,40,32.7
+E07000110,Maidstone,England,167629,45.8,32
+E07000111,Sevenoaks,England,161841,38.7,43.1
+E07000112,Shepway,England,185866,42.7,3.9
+E07000113,Swale,England,164697,43.8,30.2
+E07000114,Thanet,England,176998,43,22.8
+E07000115,Tonbridge and Malling,England,147228,44,41.8
+E07000116,Tunbridge Wells,England,132450,43.6,28
+E07000117,Burnley,England,128945,44.4,39.3
+E07000118,Chorley,England,132695,43.6,43.9
+E07000119,Fylde,England,176451,44.9,37.4
+E07000120,Hyndburn,England,151610,38.6,27.2
+E07000121,Lancaster,England,177449,42.1,15
+E07000122,Pendle,England,167758,42.2,25.7
+E07000123,Preston,England,157541,42.6,42.1
+E07000124,Ribble Valley,England,136714,43.1,15.6
+E07000125,Rossendale,England,207933,38,29.2
+E07000126,South Ribble,England,151475,39.6,22.2
+E07000127,West Lancashire,England,200737,40.9,15
+E07000128,Wyre,England,189073,46.4,9.1
+E07000129,Blaby,England,128973,43.3,29.7
+E07000130,Charnwood,England,146035,43.7,20
+E07000131,Harborough,England,148975,45.7,27.5
+E07000132,Hinckley and Bosworth,England,159807,39.4,39.3
+E07000133,Melton,England,157834,45.5,4.5
+E07000134,North West Leicestershire,England,211665,42.7,40.6
+E07000135,Oadby and Wigston,England,173684,44.5,28.7
+E07000136,Boston,England,211000,43.3,24.2
+E07000137,East Lindsey,England,141620,46.8,25.2
+E07000138,Lincoln,England,166537,44.8,20.7
+E07000139,North Kesteven,England,209834,47.1,23.3
+E07000140,South Holland,England,176332,45.4,14.7
+E07000141,South Kesteven,England,208229,48.2,15.8
+E07000142,West Lindsey,England,176551,42.4,16
+E07000143,Breckland,England,182607,47.2,16.1
+E07000144,Broadland,England,162627,47.5,24.6
+E07000145,Great Yarmouth,England,211484,44.7,27.1
+E07000146,King's Lynn and West Norfolk,England,201486,45.6,1.1
+E07000147,North Norfolk,England,154821,45.1,18.9
+E07000148,Norwich,England,147213,45.6,21.7
+E07000149,South Norfolk,England,170163,47.1,24.7
+E07000150,Corby,England,128168,43.6,29.6
+E07000151,Daventry,England,150695,44.3,32.5
+E07000152,East Northamptonshire,England,198438,42.6,22.9
+E07000153,Kettering,England,177978,45.3,32
+E07000154,Northampton,England,177278,46.2,10.3
+E07000155,South Northamptonshire,England,131072,45.9,11.8
+E07000156,Wellingborough,England,166602,44.5,31.5
+E07000163,Craven,England,166296,44.5,23.7
+E07000164,Hambleton,England,199417,45.9,14.6
+E07000165,Harrogate,England,181069,43.1,33.3
+E07000166,Richmondshire,England,166172,44.1,33.2
+E07000167,Ryedale,England,156869,46.3,20.7
+E07000168,Scarborough,England,181525,47.9,19.8
+E07000169,Selby,England,207069,39.6,38.4
+E07000170,Ashfield,England,142891,45.7,26.3
+E07000171,Bassetlaw,England,211776,44.4,27.8
+E07000172,Broxtowe,England,135215,44.3,28.9
+E07000173,Gedling,England,209103,42,29
+E07000174,Mansfield,England,160064,42.5,34.7
+E07000175,Newark and Sherwood,England,175550,47,21.5
+E07000176,Rushcliffe,England,168913,42.4,20.4
+E07000177,Cherwell,England,200422,45.6,27.6
+E07000178,Oxford,England,148430,43.3,25
+E07000179,South Oxfordshire,England,132598,44,24.3
+E07000180,Vale of White Horse,England,149575,42.7,20.6
+E07000181,West Oxfordshire,England,188820,43.9,20.8
+E07000187,Mendip,England,147284,43,43.9
+E07000188,Sedgemoor,England,127656,43.8,23.2
+E07000189,South Somerset,England,148737,41.5,20.2
+E07000190,Taunton Deane,England,182376,46.2,31.6
+E07000191,West Somerset,England,210166,41.1,33.8
+E07000192,Cannock Chase,England,154313,37.3,50.4
+E07000193,East Staffordshire,England,147314,45.5,29
+E07000194,Lichfield,England,183878,39.1,28.6
+E07000195,Newcastle-under-Lyme,England,172832,40.4,15.5
+E07000196,South Staffordshire,England,176279,39,45.2
+E07000197,Stafford,England,198665,42.8,22.6
+E07000198,Staffordshire Moorlands,England,142656,41.3,29
+E07000199,Tamworth,England,152227,41.1,43.1
+E07000200,Babergh,England,200521,44.2,17.6
+E07000201,Forest Heath,England,146557,47.7,3.1
+E07000202,Ipswich,England,187460,44.5,25.8
+E07000203,Mid Suffolk,England,159738,47.2,13.7
+E07000204,St Edmundsbury,England,173205,44,32.1
+E07000205,Suffolk Coastal,England,175708,44.6,21.6
+E07000206,Waveney,England,186279,48.2,26.4
+E07000207,Elmbridge,England,132952,42.6,33.6
+E07000208,Epsom and Ewell,England,150975,37.4,31.7
+E07000209,Guildford,England,163773,42.6,30.9
+E07000210,Mole Valley,England,165958,40.5,25.4
+E07000211,Reigate and Banstead,England,189373,39.3,40.1
+E07000212,Runnymede,England,144536,43.4,41.4
+E07000213,Spelthorne,England,208218,41.3,28.9
+E07000214,Surrey Heath,England,184460,42.9,33.3
+E07000215,Tandridge,England,212311,40.8,25.6
+E07000216,Waverley,England,196088,43.6,35.9
+E07000217,Woking,England,137414,44.4,41.5
+E07000218,North Warwickshire,England,199955,40.9,53.5
+E07000219,Nuneaton and Bedworth,England,202495,41.5,24.2
+E07000220,Rugby,England,149855,44.2,22.2
+E07000221,Stratford-on-Avon,England,173670,43,21.3
+E07000222,Warwick,England,199210,39.2,48.3
+E07000223,Adur,England,209033,43.8,17.7
+E07000224,Arun,England,148302,44.8,27.9
+E07000225,Chichester,England,179010,44.7,20.2
+E07000226,Crawley,England,137866,45,35.2
+E07000227,Horsham,England,185084,44.4,9.9
+E07000228,Mid Sussex,England,207185,41.5,33.2
+E07000229,Worthing,England,133094,45.2,17.1
+E07000234,Bromsgrove,England,144052,36.2,45.7
+E07000235,Malvern Hills,England,150191,42.5,38.6
+E07000236,Redditch,England,152326,41.9,33
+E07000237,Worcester,England,205394,41.4,28.5
+E07000238,Wychavon,England,155315,43.8,25
+E07000239,Wyre Forest,England,208271,41.7,37
+E08000001,Bolton,England,206227,36.6,35.8
+E08000002,Bury,England,128623,39.5,41.4
+E08000003,Manchester,England,159907,32.6,55.6
+E08000004,Oldham,England,162931,36.9,54.8
+E08000005,Rochdale,England,175967,36.2,47.8
+E08000006,Salford,England,154575,35.7,65.3
+E08000007,Stockport,England,186242,35.4,63.6
+E08000008,Tameside,England,145937,34.4,56.6
+E08000009,Trafford,England,188263,36.4,69.2
+E08000010,Wigan,England,162447,41.7,53.6
+E08000011,Knowsley,England,161367,43.7,33
+E08000012,Liverpool,England,206179,41.7,35
+E08000013,St. Helens,England,211029,43.3,37.9
+E08000014,Sefton,England,183944,43,30.5
+E08000015,Wirral,England,199571,39.7,35
+E08000016,Barnsley,England,170886,41.2,33.3
+E08000017,Doncaster,England,183835,44.2,35.6
+E08000018,Rotherham,England,186468,42.8,35.4
+E08000019,Sheffield,England,209071,41.3,31.1
+E08000020,Gateshead,England,142577,37.4,52.5
+E08000021,Newcastle upon Tyne,England,210945,36.1,64.7
+E08000022,North Tyneside,England,178402,37,70.5
+E08000023,South Tyneside,England,188562,35.1,59.2
+E08000024,Sunderland,England,195690,39.7,58.3
+E08000025,Birmingham,England,205976,35.2,62.6
+E08000026,Coventry,England,205609,41,33.8
+E08000027,Dudley,England,164164,38.5,52.5
+E08000028,Sandwell,England,196715,37.9,62
+E08000029,Solihull,England,188404,39.3,52.4
+E08000030,Walsall,England,132601,38.9,63
+E08000031,Wolverhampton,England,202744,37.2,61.3
+E08000032,Bradford,England,155203,40.6,55.5
+E08000033,Calderdale,England,171924,39.8,28.6
+E08000034,Kirklees,England,208753,35.8,50.2
+E08000035,Leeds,England,154454,33.8,65.5
+E08000036,Wakefield,England,175037,38.7,44.1
+E09000001,City of London,England,205322,34.9,75.7
+E09000002,Barking and Dagenham,England,156793,37.1,55.8
+E09000003,Barnet,England,129543,35,39.4
+E09000004,Bexley,England,178744,39.6,43
+E09000005,Brent,England,195894,38,62.3
+E09000006,Bromley,England,161655,36.2,60.9
+E09000007,Camden,England,135375,36.3,65.7
+E09000008,Croydon,England,155835,40.5,48.9
+E09000009,Ealing,England,166419,38.9,60.4
+E09000010,Enfield,England,190993,36.5,47.1
+E09000011,Greenwich,England,140109,35,57.1
+E09000012,Hackney,England,190861,34.1,61.5
+E09000013,Hammersmith and Fulham,England,164095,34.6,68.5
+E09000014,Haringey,England,202734,33.8,45.5
+E09000015,Harrow,England,207810,37.9,35.6
+E09000016,Havering,England,192181,41.6,31.6
+E09000017,Hillingdon,England,182725,39,54.6
+E09000018,Hounslow,England,145387,37.5,58.9
+E09000019,Islington,England,145975,34,67.1
+E09000020,Kensington and Chelsea,England,210000,35.8,57.2
+E09000021,Kingston upon Thames,England,147732,41,34.1
+E09000022,Lambeth,England,130228,34.4,56
+E09000023,Lewisham,England,149314,37.8,51.4
+E09000024,Merton,England,184235,37.4,43.4
+E09000025,Newham,England,176066,38.3,55.6
+E09000026,Redbridge,England,201166,36.5,57.4
+E09000027,Richmond upon Thames,England,184350,34.9,44.7
+E09000028,Southwark,England,140406,34,76.3
+E09000029,Sutton,England,134210,37.3,46.8
+E09000030,Tower Hamlets,England,166083,33.2,49.3
+E09000031,Waltham Forest,England,154023,36,56.2
+E09000032,Wandsworth,England,130072,34.6,48.9
+E09000033,Westminster,England,210475,34.4,84.7
+S12000005,Clackmannanshire,Scotland,188132,42.4,26.8
+S12000006,Dumfries & Galloway,Scotland,199839,47.8,30.4
+S12000008,East Ayrshire,Scotland,180484,40,19.3
+S12000010,East Lothian,Scotland,192946,38.7,23.5
+S12000011,East Renfrewshire,Scotland,195825,36.7,54.8
+S12000013,Eilean Siar,Scotland,169498,46,28.3
+S12000014,Falkirk,Scotland,205906,43.7,35.1
+S12000015,Fife,Scotland,132341,38.9,30.7
+S12000017,Highland,Scotland,203848,44.7,24.9
+S12000018,Inverclyde,Scotland,132048,41.3,41.5
+S12000019,Midlothian,Scotland,210021,37,61.9
+S12000020,Moray,Scotland,185212,43,15.2
+S12000021,North Ayrshire,Scotland,170511,42.4,17.5
+S12000023,Orkney Islands,Scotland,146622,45.1,2
+S12000024,Perth & Kinross,Scotland,168758,44.4,12
+S12000026,Scottish Borders,Scotland,187367,46.3,28.8
+S12000027,Shetland Islands,Scotland,177125,48,3.8
+S12000028,South Ayrshire,Scotland,137235,44.6,27.5
+S12000029,South Lanarkshire,Scotland,153703,44.8,39
+S12000030,Stirling,Scotland,187818,42.6,34.2
+S12000033,Aberdeen City,Scotland,143103,45.6,16.5
+S12000034,Aberdeenshire,Scotland,136943,46.3,10.5
+S12000035,Argyll & Bute,Scotland,206235,43.4,7.9
+S12000036,"Edinburgh, City of",Scotland,194777,34.3,72.1
+S12000038,Renfrewshire,Scotland,132305,39.6,32.2
+S12000039,West Dunbartonshire,Scotland,208485,37.4,33.5
+S12000040,West Lothian,Scotland,152668,39.4,27.3
+S12000041,Angus,Scotland,170605,45.3,27.1
+S12000042,Dundee City,Scotland,145934,45,31.2
+S12000044,North Lanarkshire,Scotland,150305,37,40.8
+S12000045,East Dunbartonshire,Scotland,194663,33.3,48.7
+S12000046,Glasgow City,Scotland,154141,30.6,70.2
+W06000001,Isle of Anglesey,Wales,128615,43,14.4
+W06000002,Gwynedd,Wales,184659,48,5.5
+W06000003,Conwy,Wales,196612,44.6,20.5
+W06000004,Denbighshire,Wales,185740,37.7,40.5
+W06000005,Flintshire,Wales,192951,41.6,50.9
+W06000006,Wrexham,Wales,192945,36.9,66.6
+W06000008,Ceredigion,Wales,160987,42.6,6
+W06000009,Pembrokeshire,Wales,188002,46.8,17.1
+W06000010,Carmarthenshire,Wales,206538,39.4,51
+W06000011,Swansea,Wales,196642,36.9,54.8
+W06000012,Neath Port Talbot,Wales,131324,35.4,59.1
+W06000013,Bridgend,Wales,138264,36.1,46.3
+W06000014,The Vale of Glamorgan,Wales,173046,36.7,48.7
+W06000015,Cardiff,Wales,204978,35.3,75.8
+W06000016,Rhondda Cynon Taf,Wales,174885,40.7,33.9
+W06000018,Caerphilly,Wales,160262,38.6,45.6
+W06000019,Blaenau Gwent,Wales,129465,37,39.7
+W06000020,Torfaen,Wales,140635,38.5,45.7
+W06000021,Monmouthshire,Wales,203038,36.3,45.6
+W06000022,Newport,Wales,208419,32,71.4
+W06000023,Powys,Wales,169312,46.7,33
+W06000024,Merthyr Tydfil,Wales,137695,42.5,40.9
