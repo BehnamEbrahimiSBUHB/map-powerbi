@@ -32,12 +32,12 @@ maps/<version>/<level>/<council>/<map type>/<file>.json
 | Map type | What it shows | Use it when |
 |---|---|---|
 | `geographic` | The real boundaries. | Readers need to recognise places. |
-| `hexmap` | One equal-sized hexagon per area. Each council stays in one piece. | Small town-centre areas get lost on the real map. |
-| `geogrid` | One equal-sized hexagon per area, on a regular grid. In the combined files the two councils can mix. | You want a compact, regular block of hexagons. |
+| `hexmap` | One equal-sized hexagon per area, following the outline of the map. Each council stays in one piece, with a thin gap between them. | Small town-centre areas get lost on the real map. |
+| `geogrid` | One equal-sized hexagon per area, on a regular grid shaped like the whole map. Each council stays in one piece. | You want a regular grid with no gap between the councils. |
 
 On a hex map every area gets the same space, so a large rural area no longer looks more important than a small urban one. A hexagon sits near the real area, not exactly on it.
 
-`geogrid` files exist for LSOA and MSOA only. `hexmap` files exist for OA, LSOA and MSOA.
+Both hex maps exist for OA, LSOA and MSOA. The council outline is geographic only.
 
 To download a file, open it on GitHub and select **Download raw file**.
 
