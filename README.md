@@ -6,7 +6,7 @@ Ready-to-use map files for the Power BI **Shape map** visual: real boundaries an
 [![Deploy site](https://github.com/CodeWithBehnam/map-powerbi/actions/workflows/pages.yml/badge.svg)](https://github.com/CodeWithBehnam/map-powerbi/actions/workflows/pages.yml)
 [![Dashboard: live](https://img.shields.io/badge/dashboard-live-2a78d6)](https://codewithbehnam.github.io/map-powerbi/)
 [![Power BI: Shape map](https://img.shields.io/badge/Power%20BI-Shape%20map-F2C811)](docs/power-bi-guide.md)
-[![Map files: 174](https://img.shields.io/badge/map%20files-174-informational)](docs/map-files.md)
+[![Map files: 180](https://img.shields.io/badge/map%20files-180-informational)](docs/map-files.md)
 [![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 [![Data: OGL v3.0](https://img.shields.io/badge/data-OGL%20v3.0-brightgreen)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
 
@@ -62,7 +62,7 @@ Files follow one pattern:
 maps/<version>/<level>/<area>/<map type>/<file>.json
 ```
 
-The **[catalogue](docs/map-files.md)** lists all 174 files with links and shape counts. This table shows what exists.
+The **[catalogue](docs/map-files.md)** lists all 180 files with links and shape counts. This table shows what exists.
 
 | Shapes | Areas covered | Versions | Shapes per file |
 |---|---|---|---|
@@ -74,6 +74,7 @@ The **[catalogue](docs/map-files.md)** lists all 174 files with links and shape 
 | Councils | Northern Ireland | 2021, 2026 | 11 |
 | Health boards | Wales | 2023 | 7 |
 | Primary care clusters | Wales | 2019, 2024 | 64 and 63 |
+| Primary care clusters | Swansea Bay health board area | 2019, 2024 | 8 |
 
 **The all-Wales LSOA file has 1,917 shapes, more than the 1,500 that Power BI plots.** For LSOA maps in Power BI, use a health board file instead. Every other file fits.
 

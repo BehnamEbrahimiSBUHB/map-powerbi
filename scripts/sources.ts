@@ -51,6 +51,8 @@ export type Selector =
   | { readonly kind: "council"; readonly council: Council }
   /** Rows whose area code starts with a prefix, e.g. "W" for Wales. */
   | { readonly kind: "codePrefix"; readonly prefix: string; readonly label: string }
+  /** Rows picked by exact area code, for places no field or prefix identifies. */
+  | { readonly kind: "codes"; readonly codes: readonly string[]; readonly label: string }
   /** Every row of a layer that already covers just the right place. */
   | { readonly kind: "all"; readonly label: string };
 
@@ -269,6 +271,43 @@ const WALES_WHOLE_LAYER: Area = {
   slug: "wales",
   label: "Wales",
   parts: [{ key: "wales", label: "Wales", colour: 0, selectors: [{ kind: "all", label: "Wales" }] }],
+};
+
+// The eight clusters of Swansea Bay University Health Board, by council. Picked
+// by code because the 2019 layer still files three Bridgend clusters under the
+// same "CC3" prefix, from before Bridgend moved to Cwm Taf Morgannwg.
+const SWANSEA_BAY_CLUSTERS: Area = {
+  slug: "swansea-bay",
+  label: "Swansea Bay health board area",
+  parts: [
+    {
+      key: SWANSEA.slug,
+      label: SWANSEA.name,
+      colour: 0,
+      selectors: [
+        {
+          kind: "codes",
+          // BayHealth, CityHealth, Cwmtawe, Llwchwr, Penderi
+          codes: ["CC302", "CC306", "CC307", "CC308", "CC310"],
+          // The parent place written to the sample data, which is a country at this level.
+          label: "Wales",
+        },
+      ],
+    },
+    {
+      key: NEATH_PORT_TALBOT.slug,
+      label: NEATH_PORT_TALBOT.name,
+      colour: 1,
+      selectors: [
+        {
+          kind: "codes",
+          // Afan, Neath, Upper Valleys
+          codes: ["CC301", "CC309", "CC311"],
+          label: "Wales",
+        },
+      ],
+    },
+  ],
 };
 
 // ---------- sources ----------
@@ -491,6 +530,17 @@ export const MAP_SETS: readonly MapSet[] = [
     title: "Welsh primary care clusters",
     sources: [CLUSTERS_2019, CLUSTERS_2024],
     areas: [WALES_WHOLE_LAYER],
+    types: ALL_TYPES,
+  },
+  {
+    // One health board is shown much closer up than all of Wales, so keep more detail.
+    key: "swansea-bay-clusters",
+    title: "Swansea Bay primary care clusters",
+    sources: [
+      { ...CLUSTERS_2019, simplify: "25%" },
+      { ...CLUSTERS_2024, simplify: "25%" },
+    ],
+    areas: [SWANSEA_BAY_CLUSTERS],
     types: ALL_TYPES,
   },
 ];

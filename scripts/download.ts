@@ -31,6 +31,8 @@ const selectorKey = (selector: Selector): string => {
       return selector.council.slug;
     case "codePrefix":
       return `prefix-${selector.prefix}`;
+    case "codes":
+      return `codes-${selector.codes.join("-")}`;
     case "all":
       return "all";
   }
@@ -49,6 +51,8 @@ const whereClause = (source: Source, selector: Selector): string => {
       return "1=1";
     case "codePrefix":
       return `${layerField(source, source.codeField)} LIKE '${selector.prefix}%'`;
+    case "codes":
+      return `${layerField(source, source.codeField)} IN (${selector.codes.map((code) => `'${code}'`).join(", ")})`;
     case "council": {
       const { council } = selector;
       if (source.filter === undefined) {
@@ -182,12 +186,33 @@ const cachePath = (source: Source, selector: Selector): string =>
 
 const loads = new Map<string, Promise<readonly Feature[]>>();
 
+// DataMapWales layers are only downloaded whole, so picking by code filters that download.
+const pickCodes = async (
+  source: Source,
+  selector: Extract<Selector, { kind: "codes" }>,
+  refresh: boolean,
+): Promise<readonly Feature[]> => {
+  const all = await loadSelector(source, { kind: "all", label: selector.label }, refresh);
+  const picked = all.filter((feature) =>
+    selector.codes.includes(String(feature.properties[source.codeField])),
+  );
+  if (picked.length !== selector.codes.length) {
+    throw new Error(
+      `${source.service}: found ${picked.length} of the ${selector.codes.length} codes ${selector.codes.join(", ")}`,
+    );
+  }
+  return picked;
+};
+
 /** The areas of one selector, with only the configured fields. Cached on disk and in memory. */
 export const loadSelector = (
   source: Source,
   selector: Selector,
   refresh: boolean,
 ): Promise<readonly Feature[]> => {
+  if (source.provider === "datamapwales" && selector.kind === "codes") {
+    return pickCodes(source, selector, refresh);
+  }
   const path = cachePath(source, selector);
   const running = loads.get(path);
   if (running !== undefined) {
