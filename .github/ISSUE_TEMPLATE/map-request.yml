@@ -1,0 +1,35 @@
+name: Request a map
+description: Ask for another area, boundary level or version.
+labels: [enhancement]
+body:
+  - type: input
+    id: area
+    attributes:
+      label: Area
+      description: Which council or region?
+      placeholder: Bridgend
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Boundary level
+      multiple: true
+      options:
+        - Output Area (OA)
+        - LSOA
+        - MSOA
+        - Council outline
+        - Something else (describe below)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "2021"
+  - type: textarea
+    id: use
+    attributes:
+      label: What will you use it for?
+      description: A sentence is enough. It helps decide which map types to build.

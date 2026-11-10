@@ -1,0 +1,38 @@
+name: Problem with a map file
+description: A map does not load, shows the wrong shapes or does not match your data.
+labels: [bug]
+body:
+  - type: input
+    id: file
+    attributes:
+      label: Which file?
+      description: Paste the path of the map file.
+      placeholder: maps/2021/lsoa/swansea/geographic/swansea-lsoa-2021.json
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened?
+      description: Say what you did and what you saw. A screenshot helps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Power BI version
+      description: In Power BI Desktop, go to Help > About. Leave empty if you use another tool.
+      placeholder: "2.150.1234.0 (November 2026)"
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: The map version (2001, 2011 or 2021) matches the area codes in my data.
+        - label: I compared my codes with **View map type key** in Power BI.
