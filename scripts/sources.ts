@@ -18,13 +18,11 @@ export const HEX_METHODS: readonly HexMethod[] = ["hexmap", "geogrid"];
 
 /**
  * Levels each hex method is built for. The council outline is left out: it would
- * be one hexagon. geogrid is left out of OA because its matching step grows with
- * the cube of the area count: about 2 minutes for 240 areas, hours for 1,291.
- * Add "oa" to switch it on.
+ * be one hexagon.
  */
 export const HEX_LEVELS: Readonly<Record<HexMethod, readonly Level[]>> = {
   hexmap: ["oa", "lsoa", "msoa"],
-  geogrid: ["lsoa", "msoa"],
+  geogrid: ["oa", "lsoa", "msoa"],
 };
 
 export interface Council {
