@@ -131,7 +131,7 @@ const syncTypeOptions = (source: Source, selected: MapType): void => {
     input.disabled = !available.includes(input.value as MapType);
     input.checked = input.value === selected;
   }
-  element<HTMLElement>("#type-note").hidden = available.includes("geogrid");
+  element<HTMLElement>("#type-note").hidden = available.length === Object.keys(TYPE_LABELS).length;
 };
 
 const cache = new Map<string, Promise<unknown>>();

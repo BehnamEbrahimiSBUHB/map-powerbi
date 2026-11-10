@@ -149,31 +149,48 @@ A hexmap gives every area one equal-sized hexagon and keeps areas close to where
 
 ## Stage 3: turn it into a geogrid
 
-A geogrid also gives every area one hexagon, on a regular grid shaped like the whole map. It ignores groups, so areas from different groups can end up side by side.
+A geogrid also gives every area one hexagon. The hexagons form a regular grid laid over the shape of the whole map, so the result keeps the map's outline, with no gap between groups.
 
 ```sh
 Rscript scripts/hex.R geogrid mine.geojson mine-geogrid.geojson
 bunx mapshaper mine-geogrid.geojson -o format=topojson id-field=CODE mine-geogrid.json
 ```
 
-**geogrid is slow for large maps.** Its matching step grows with the cube of the number of areas.
+To keep groups of areas together, add the group property, as for a hexmap:
 
-| Areas | hexmap | geogrid |
+```sh
+Rscript scripts/hex.R geogrid mine.geojson mine-geogrid.geojson REGION
+```
+
+Without a group property, areas near a border can land on the wrong side of it, because areas are matched to hexagons by distance alone.
+
+### How this differs from the geogrid package
+
+The script uses [geogrid](https://github.com/jbaileyh/geogrid) to make the grid. It then matches areas to hexagons itself, with the same rule as geogrid (the smallest total distance between area centres and hexagon centres), for two reasons:
+
+- **Groups.** geogrid's own matching cannot keep groups together.
+- **Speed.** geogrid's own matching repeats the whole calculation once per area. For 240 areas it took 2 minutes, and for 1,291 areas it had not finished after 8 minutes.
+
+For a map with no groups, the script gives the same result as geogrid. This was checked on three maps of 30, 91 and 150 areas: no area moved.
+
+### How long it takes
+
+| Areas | hexmap | geogrid (this script) |
 |---|---|---|
-| 48 | 4 seconds | 2 seconds |
-| 240 | 5 seconds | 2 minutes |
-| 1,291 | 34 seconds | Hours (stopped after 8 minutes, not finished) |
+| 48 | 4 seconds | 1 second |
+| 240 | 5 seconds | 2 seconds |
+| 1,291 | 34 seconds | 49 seconds |
 
-Times are from one Apple Silicon laptop. Use hexmap for maps with more than a few hundred areas.
+Times are from one Apple Silicon laptop.
 
 ## Which should I pick?
 
 | You want | Pick |
 |---|---|
-| Hexagons that stay close to the real places | hexmap |
-| Groups such as councils kept in one piece | hexmap with a group property |
-| A neat, regular block of hexagons | geogrid |
-| A map with more than a few hundred areas | hexmap |
+| Hexagons that follow the outline closely, with a visible gap between groups | hexmap |
+| A regular grid with no gaps between groups | geogrid |
+| Groups such as councils kept in one piece | Either, with a group property |
+
 
 ## If something does not work
 
