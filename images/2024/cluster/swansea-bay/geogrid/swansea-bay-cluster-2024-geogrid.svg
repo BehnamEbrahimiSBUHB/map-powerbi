@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="516" viewBox="0 0 800 516" stroke-linecap="round" stroke-linejoin="round">
+<g id="in">
+<path d="M 356 54.81 356 156.42 268 207.23 180 156.42 180 54.81 268 4 356 54.81 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 180 359.65 180 461.26 92 512.07 4 461.26 4 359.65 92 308.84 180 359.65 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 268 207.23 356 156.42 444 207.23 444 308.84 356 359.65 268 308.84 268 207.23 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 356 54.81 444 4 532 54.81 532 156.42 444 207.23 356 156.42 356 54.81 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 180 359.65 268 308.84 356 359.65 356 461.26 268 512.07 180 461.26 180 359.65 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 532 54.81 620 4 708 54.81 708 156.42 620 207.23 532 156.42 532 54.81 Z" fill="#d95926" stroke="#ffffff" stroke-width="1"/>
+<path d="M 620 207.23 708 156.42 796 207.23 796 308.84 708 359.65 620 308.84 620 207.23 Z" fill="#d95926" stroke="#ffffff" stroke-width="1"/>
+<path d="M 444 207.23 532 156.42 620 207.23 620 308.84 532 359.65 444 308.84 444 207.23 Z" fill="#d95926" stroke="#ffffff" stroke-width="1"/>
+</g>
+</svg>
