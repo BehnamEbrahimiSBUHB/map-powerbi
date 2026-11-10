@@ -1,0 +1,14 @@
+{
+  "name": "map-powerbi",
+  "version": "0.1.0",
+  "description": "Power BI shape map files (TopoJSON) for Swansea and Neath Port Talbot, built from ONS boundaries",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run scripts/build.ts",
+    "build:refresh": "bun run scripts/build.ts --refresh"
+  },
+  "devDependencies": {
+    "mapshaper": "^0.7.101"
+  }
+}
