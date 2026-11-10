@@ -1,32 +1,33 @@
-// Downloads ONS boundaries for each council, then writes a Power BI shape map file
-// (TopoJSON) and a preview image (SVG) per council and for the two combined.
+// Downloads ONS boundaries for each council, then writes Power BI shape map files
+// (TopoJSON) and preview images (SVG) per council and for the two combined: one
+// geographic map, plus one hex map per method in scripts/hex.R.
 //
-// Usage: bun run scripts/build.ts [--refresh]
-//   --refresh  download again instead of reusing files in .cache/
+// Usage: bun run scripts/build.ts [--refresh] [--rehex]
+//   --refresh  download again instead of reusing files in .cache/ons/
+//   --rehex    recompute hexagons instead of reusing files in .cache/hex/
 
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import mapshaper from "mapshaper";
+import {
+  collection,
+  isFeatureCollection,
+  readFeatures,
+  type Feature,
+  type FeatureCollection,
+} from "./geojson.ts";
 import {
   COUNCILS,
   ONS_SERVICES_URL,
   SOURCES,
   type Council,
   type Filter,
+  type HexMethod,
   type Level,
+  type MapType,
   type Source,
 } from "./sources.ts";
-
-interface Feature {
-  readonly type: "Feature";
-  readonly properties: Readonly<Record<string, unknown>>;
-  readonly geometry: unknown;
-}
-
-interface FeatureCollection {
-  readonly type: "FeatureCollection";
-  readonly features: readonly Feature[];
-}
+import { COMBINED_SLUG, mapTypes, outputStem } from "./paths.ts";
 
 interface BuiltFile {
   readonly path: string;
@@ -34,8 +35,22 @@ interface BuiltFile {
   readonly bytes: number;
 }
 
+/** One council's areas. A group is one council, or every council for the combined files. */
+type Members = readonly (readonly [Council, readonly Feature[]])[];
+
+interface Options {
+  readonly refresh: boolean;
+  readonly rehex: boolean;
+}
+
 const ROOT = join(import.meta.dir, "..");
 const CACHE_DIR = join(ROOT, ".cache", "ons");
+const HEX_CACHE_DIR = join(ROOT, ".cache", "hex");
+const HEX_SCRIPT = join(import.meta.dir, "hex.R");
+// Set RSCRIPT to use an R installation that is not on the PATH.
+const RSCRIPT = process.env.RSCRIPT ?? "Rscript";
+// Property scripts/hex.R reads to tell councils apart. Never written to the map files.
+const COUNCIL_PROPERTY = "council";
 const MAPS_DIR = join(ROOT, "maps");
 const IMAGES_DIR = join(ROOT, "images");
 const PAGE_SIZE = 1000;
@@ -68,11 +83,6 @@ const whereClause = (filter: Filter, council: Council): string => {
 const queryUrl = (source: Source, params: Readonly<Record<string, string>>): string =>
   `${ONS_SERVICES_URL}/${source.service}/FeatureServer/0/query?${new URLSearchParams(params)}`;
 
-const collection = (features: readonly Feature[]): FeatureCollection => ({
-  type: "FeatureCollection",
-  features,
-});
-
 const pick = (
   properties: Readonly<Record<string, unknown>>,
   fields: readonly string[],
@@ -97,17 +107,31 @@ const imageFeatures = (
     geometry: feature.geometry,
   }));
 
-const outputStem = (source: Source, slug: string): string =>
-  join(
-    source.level === "council" ? "council" : String(source.year),
-    `${slug}-${source.level}-${source.year}`,
+const imageCommands = (type: MapType): string =>
+  type === "geographic"
+    ? // British National Grid, so the image is not stretched as raw longitude/latitude would be.
+      `-proj EPSG:27700 -simplify interval=${IMAGE_DETAIL_METRES} keep-shapes`
+    : // Web Mercator, the projection the hexagons were made in, so they are drawn regular.
+      "-proj EPSG:3857";
+
+// The hex script needs to know each area's council to keep councils in one piece.
+const hexInputFeatures = (members: Members, source: Source): readonly Feature[] =>
+  members.flatMap(([council, features]) =>
+    features.map((feature) => ({
+      type: "Feature" as const,
+      properties: { ...pick(feature.properties, source.fields), [COUNCIL_PROPERTY]: council.slug },
+      geometry: feature.geometry,
+    })),
   );
 
-const isFeatureCollection = (value: unknown): value is FeatureCollection =>
-  typeof value === "object" &&
-  value !== null &&
-  (value as { type?: unknown }).type === "FeatureCollection" &&
-  Array.isArray((value as { features?: unknown }).features);
+const splitByCouncil = (features: readonly Feature[], members: Members): Members =>
+  members.map(
+    ([council]) =>
+      [
+        council,
+        features.filter((feature) => feature.properties[COUNCIL_PROPERTY] === council.slug),
+      ] as const,
+  );
 
 // ---------- I/O ----------
 
@@ -178,13 +202,8 @@ const loadFeatures = async (
   refresh: boolean,
 ): Promise<readonly Feature[]> => {
   const cachePath = join(CACHE_DIR, source.service, `${council.slug}.geojson`);
-  const cached = Bun.file(cachePath);
-  if (!refresh && (await cached.exists())) {
-    const parsed: unknown = JSON.parse(await readFile(cachePath, "utf8"));
-    if (!isFeatureCollection(parsed)) {
-      throw new Error(`Cache file is not a FeatureCollection: ${cachePath}`);
-    }
-    return parsed.features;
+  if (!refresh && (await Bun.file(cachePath).exists())) {
+    return readFeatures(cachePath);
   }
   const features = await download(source, council);
   await mkdir(dirname(cachePath), { recursive: true });
@@ -214,12 +233,47 @@ const writeOutput = async (path: string, contents: string | Uint8Array): Promise
   return Bun.file(path).size;
 };
 
+const runHexScript = async (method: HexMethod, input: string, output: string): Promise<void> => {
+  const child = Bun.spawn([RSCRIPT, "--vanilla", HEX_SCRIPT, method, input, output], {
+    stdout: "ignore",
+    stderr: "pipe",
+  });
+  const [exitCode, stderr] = await Promise.all([child.exited, new Response(child.stderr).text()]);
+  if (exitCode !== 0) {
+    throw new Error(`${method} failed for ${input} (exit ${exitCode}): ${stderr.trim()}`);
+  }
+};
+
+// Hexagons are slow to compute, so each result is kept in .cache/hex/ and reused.
+const loadHexMembers = async (
+  source: Source,
+  slug: string,
+  method: HexMethod,
+  members: Members,
+  recompute: boolean,
+): Promise<Members> => {
+  const name = `${slug}-${source.level}-${source.year}.geojson`;
+  const hexPath = join(HEX_CACHE_DIR, method, name);
+  if (recompute || !(await Bun.file(hexPath).exists())) {
+    const inputPath = join(HEX_CACHE_DIR, "input", method, name);
+    await writeOutput(inputPath, JSON.stringify(collection(hexInputFeatures(members, source))));
+    await runHexScript(method, inputPath, hexPath);
+  }
+  const hexagons = await readFeatures(hexPath);
+  const expected = members.flatMap(([, features]) => features).length;
+  if (hexagons.length !== expected) {
+    throw new Error(`${hexPath}: expected ${expected} hexagons, got ${hexagons.length}`);
+  }
+  return splitByCouncil(hexagons, members);
+};
+
 const buildGroup = async (
   source: Source,
   slug: string,
-  members: readonly (readonly [Council, readonly Feature[]])[],
+  type: MapType,
+  members: Members,
 ): Promise<BuiltFile> => {
-  const stem = outputStem(source, slug);
+  const stem = outputStem(source, slug, type);
   const layer = `${source.level}_${source.year}`;
   const all = members.flatMap(([, features]) => features);
 
@@ -228,39 +282,53 @@ const buildGroup = async (
     `name=${layer} -o format=topojson id-field=${source.codeField}`,
     "out.json",
   );
-  // British National Grid, so the image is not stretched as raw longitude/latitude would be.
   const svg = await convert(
     collection(
       members.flatMap(([council, features]) => imageFeatures(features, council, source.level)),
     ),
-    `-proj EPSG:27700 -simplify interval=${IMAGE_DETAIL_METRES} keep-shapes ` +
-      `-o format=svg width=${IMAGE_WIDTH} margin=4`,
+    `${imageCommands(type)} -o format=svg width=${IMAGE_WIDTH} margin=4`,
     "out.svg",
   );
 
-  const mapPath = join(MAPS_DIR, `${stem}.json`);
-  const bytes = await writeOutput(mapPath, topojson);
+  const bytes = await writeOutput(join(MAPS_DIR, `${stem}.json`), topojson);
   await writeOutput(join(IMAGES_DIR, `${stem}.svg`), svg);
   return { path: join("maps", `${stem}.json`), areas: all.length, bytes };
 };
 
-const buildSource = async (source: Source, refresh: boolean): Promise<readonly BuiltFile[]> => {
-  const members = await Promise.all(
+const buildSource = async (source: Source, options: Options): Promise<readonly BuiltFile[]> => {
+  const members: Members = await Promise.all(
     COUNCILS.map(
-      async (council) => [council, await loadFeatures(source, council, refresh)] as const,
+      async (council) => [council, await loadFeatures(source, council, options.refresh)] as const,
     ),
   );
-  const single = members.map((member) => buildGroup(source, member[0].slug, [member]));
-  const combined = buildGroup(source, COUNCILS.map((council) => council.slug).join("-and-"), members);
-  return Promise.all([...single, combined]);
+  const groups: readonly (readonly [string, Members])[] = [
+    ...members.map((member) => [member[0].slug, [member]] as const),
+    [COMBINED_SLUG, members],
+  ];
+    return Promise.all(
+    groups.flatMap(([slug, group]) => [
+      ...mapTypes(source).map(async (type) =>
+        buildGroup(
+          source,
+          slug,
+          type,
+          type === "geographic"
+            ? group
+            : await loadHexMembers(source, slug, type, group, options.rehex),
+        ),
+      ),
+    ]),
+  );
 };
 
 const main = async (): Promise<void> => {
   const refresh = process.argv.includes("--refresh");
+  // New downloads make the cached hexagons stale, so a refresh recomputes them too.
+  const options: Options = { refresh, rehex: refresh || process.argv.includes("--rehex") };
   // One source at a time keeps the load on the ONS servers light.
   const built: BuiltFile[] = [];
   for (const source of SOURCES) {
-    built.push(...(await buildSource(source, refresh)));
+    built.push(...(await buildSource(source, options)));
   }
   console.table(
     built.map(({ path, areas, bytes }) => ({ file: path, areas, kB: Math.round(bytes / 1024) })),
