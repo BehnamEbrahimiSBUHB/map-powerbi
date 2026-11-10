@@ -1,33 +1,19 @@
-// Downloads ONS boundaries for each council, then writes Power BI shape map files
-// (TopoJSON) and preview images (SVG) per council and for the two combined: one
-// geographic map, plus one hex map per method in scripts/hex.R.
+// Builds every map file: downloads the boundaries of each area, then writes
+// Power BI shape map files (TopoJSON) and preview images (SVG), one geographic
+// map plus one hex map per method in scripts/hex.R.
 //
-// Usage: bun run scripts/build.ts [--refresh] [--rehex]
-//   --refresh  download again instead of reusing files in .cache/ons/
+// Usage: bun run scripts/build.ts [--refresh] [--rehex] [--only=<set key>]
+//   --refresh  download again instead of reusing files in .cache/
 //   --rehex    recompute hexagons instead of reusing files in .cache/hex/
+//   --only     build one map set from scripts/sources.ts, e.g. --only=wales-clusters
 
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import mapshaper from "mapshaper";
-import {
-  collection,
-  isFeatureCollection,
-  readFeatures,
-  type Feature,
-  type FeatureCollection,
-} from "./geojson.ts";
-import {
-  COUNCILS,
-  ONS_SERVICES_URL,
-  SOURCES,
-  type Council,
-  type Filter,
-  type HexMethod,
-  type Level,
-  type MapType,
-  type Source,
-} from "./sources.ts";
-import { COMBINED_SLUG, mapTypes, outputStem } from "./paths.ts";
+import { loadSelector } from "./download.ts";
+import { collection, isFeatureCollection, readFeatures, type Feature } from "./geojson.ts";
+import { MAP_GROUPS, outputStem, type MapGroup } from "./paths.ts";
+import { PALETTE, type HexMethod, type MapType, type Part, type Source } from "./sources.ts";
 
 interface BuiltFile {
   readonly path: string;
@@ -35,8 +21,8 @@ interface BuiltFile {
   readonly bytes: number;
 }
 
-/** One council's areas. A group is one council, or every council for the combined files. */
-type Members = readonly (readonly [Council, readonly Feature[]])[];
+/** The shapes of one map file, by part. */
+type Members = readonly (readonly [Part, readonly Feature[]])[];
 
 interface Options {
   readonly refresh: boolean;
@@ -44,181 +30,86 @@ interface Options {
 }
 
 const ROOT = join(import.meta.dir, "..");
-const CACHE_DIR = join(ROOT, ".cache", "ons");
+const MAPS_DIR = join(ROOT, "maps");
+const IMAGES_DIR = join(ROOT, "images");
 const HEX_CACHE_DIR = join(ROOT, ".cache", "hex");
 const HEX_SCRIPT = join(import.meta.dir, "hex.R");
 // Set RSCRIPT to use an R installation that is not on the PATH.
 const RSCRIPT = process.env.RSCRIPT ?? "Rscript";
-// Property scripts/hex.R reads to tell councils apart. Never written to the map files.
-const COUNCIL_PROPERTY = "council";
-const MAPS_DIR = join(ROOT, "maps");
-const IMAGES_DIR = join(ROOT, "images");
-const PAGE_SIZE = 1000;
+// Property that carries each shape's part through mapshaper and scripts/hex.R.
+// Never written to the map files.
+const PART_PROPERTY = "council";
 const IMAGE_WIDTH = 800;
-// At this width a pixel covers roughly 70 m, so finer detail only bloats the images.
-const IMAGE_DETAIL_METRES = 40;
-
-// Thinner borders for smaller areas so dense town centres stay readable.
-const STROKE_WIDTH: Readonly<Record<Level, number>> = {
-  oa: 0.2,
-  lsoa: 0.5,
-  msoa: 0.8,
-  council: 1,
-};
 
 // ---------- pure helpers ----------
-
-const whereClause = (filter: Filter, council: Council): string => {
-  switch (filter.kind) {
-    case "namePrefix":
-      // Trailing space stops "Swansea" matching a longer council name.
-      return `${filter.field} LIKE '${council.name} %'`;
-    case "ladCode":
-      return `${filter.field} = '${council.ladCode}'`;
-    case "oldCodePrefix":
-      return `${filter.field} LIKE '${council.oldCode}%'`;
-  }
-};
-
-const queryUrl = (source: Source, params: Readonly<Record<string, string>>): string =>
-  `${ONS_SERVICES_URL}/${source.service}/FeatureServer/0/query?${new URLSearchParams(params)}`;
 
 const pick = (
   properties: Readonly<Record<string, unknown>>,
   fields: readonly string[],
 ): Record<string, unknown> => Object.fromEntries(fields.map((field) => [field, properties[field]]));
 
-const mapFeatures = (features: readonly Feature[], source: Source): readonly Feature[] =>
-  features.map((feature) => ({
-    type: "Feature",
-    properties: pick(feature.properties, source.fields),
-    geometry: feature.geometry,
-  }));
+const count = (members: Members): number =>
+  members.reduce((sum, [, features]) => sum + features.length, 0);
 
-// mapshaper draws SVG shapes using these property names as style attributes.
-const imageFeatures = (
-  features: readonly Feature[],
-  council: Council,
-  level: Level,
-): readonly Feature[] =>
-  features.map((feature) => ({
-    type: "Feature",
-    properties: { fill: council.fill, stroke: "#ffffff", "stroke-width": STROKE_WIDTH[level] },
-    geometry: feature.geometry,
-  }));
-
-const imageCommands = (type: MapType): string =>
-  type === "geographic"
-    ? // British National Grid, so the image is not stretched as raw longitude/latitude would be.
-      `-proj EPSG:27700 -simplify interval=${IMAGE_DETAIL_METRES} keep-shapes`
-    : // Web Mercator, the projection the hexagons were made in, so they are drawn regular.
-      "-proj EPSG:3857";
-
-// The hex script needs to know each area's council to keep councils in one piece.
-const hexInputFeatures = (members: Members, source: Source): readonly Feature[] =>
-  members.flatMap(([council, features]) =>
+const mapFeatures = (members: Members, source: Source): readonly Feature[] =>
+  members.flatMap(([, features]) =>
     features.map((feature) => ({
       type: "Feature" as const,
-      properties: { ...pick(feature.properties, source.fields), [COUNCIL_PROPERTY]: council.slug },
+      properties: pick(feature.properties, source.fields),
       geometry: feature.geometry,
     })),
   );
 
-const splitByCouncil = (features: readonly Feature[], members: Members): Members =>
-  members.map(
-    ([council]) =>
-      [
-        council,
-        features.filter((feature) => feature.properties[COUNCIL_PROPERTY] === council.slug),
-      ] as const,
+/** Shapes tagged with their part, for steps that work on the whole file at once. */
+const taggedFeatures = (members: Members, source: Source): readonly Feature[] =>
+  members.flatMap(([part, features]) =>
+    features.map((feature) => ({
+      type: "Feature" as const,
+      properties: { ...pick(feature.properties, source.fields), [PART_PROPERTY]: part.key },
+      geometry: feature.geometry,
+    })),
   );
+
+const splitByPart = (features: readonly Feature[], members: Members): Members =>
+  members.map(
+    ([part]) =>
+      [part, features.filter((feature) => feature.properties[PART_PROPERTY] === part.key)] as const,
+  );
+
+// Thinner borders where there are more shapes, so dense places stay readable.
+const strokeWidth = (shapes: number): number =>
+  shapes > 1000 ? 0.2 : shapes > 150 ? 0.4 : shapes > 40 ? 0.6 : 1;
+
+// mapshaper draws SVG shapes using these property names as style attributes.
+const imageFeatures = (members: Members): readonly Feature[] => {
+  const width = strokeWidth(count(members));
+  return members.flatMap(([part, features]) =>
+    features.map((feature) => ({
+      type: "Feature" as const,
+      properties: { fill: PALETTE[part.colour], stroke: "#ffffff", "stroke-width": width },
+      geometry: feature.geometry,
+    })),
+  );
+};
+
+const imageCommands = (type: MapType): string =>
+  type === "geographic"
+    ? // British National Grid, so the image is not stretched as raw longitude/latitude
+      // would be. Detail finer than a pixel only bloats the file.
+      `-proj EPSG:27700 -simplify resolution=${IMAGE_WIDTH} keep-shapes`
+    : // Web Mercator, the projection the hexagons were made in, so they are drawn regular.
+      "-proj EPSG:3857";
 
 // ---------- I/O ----------
 
-const fetchJson = async (url: string): Promise<unknown> => {
-  const response = await fetch(url, { signal: AbortSignal.timeout(60_000) });
-  if (!response.ok) {
-    throw new Error(`ONS request failed with HTTP ${response.status}: ${url}`);
-  }
-  const body: unknown = await response.json();
-  // ArcGIS reports query errors in the body of a 200 response.
-  if (typeof body === "object" && body !== null && "error" in body) {
-    throw new Error(`ONS query error ${JSON.stringify(body.error)}: ${url}`);
-  }
-  return body;
-};
-
-const fetchCount = async (source: Source, where: string): Promise<number> => {
-  const body = await fetchJson(queryUrl(source, { where, returnCountOnly: "true", f: "json" }));
-  const count = (body as { count?: unknown }).count;
-  if (typeof count !== "number") {
-    throw new Error(`No count returned for ${source.service} where ${where}`);
-  }
-  return count;
-};
-
-const fetchPages = async (
-  source: Source,
-  where: string,
-  offset = 0,
-): Promise<readonly Feature[]> => {
-  const body = await fetchJson(
-    queryUrl(source, {
-      where,
-      outFields: source.fields.join(","),
-      orderByFields: source.codeField,
-      resultOffset: String(offset),
-      resultRecordCount: String(PAGE_SIZE),
-      // About 0.1 m, well inside the 20 m generalisation of the source.
-      geometryPrecision: "6",
-      f: "geojson",
-    }),
-  );
-  if (!isFeatureCollection(body)) {
-    throw new Error(`Unexpected response shape from ${source.service}`);
-  }
-  return body.features.length < PAGE_SIZE
-    ? body.features
-    : [...body.features, ...(await fetchPages(source, where, offset + PAGE_SIZE))];
-};
-
-const download = async (source: Source, council: Council): Promise<readonly Feature[]> => {
-  const where = whereClause(source.filter, council);
-  const [expected, features] = await Promise.all([
-    fetchCount(source, where),
-    fetchPages(source, where),
-  ]);
-  if (expected === 0 || features.length !== expected) {
-    throw new Error(
-      `${source.service}: expected ${expected} areas for ${council.name}, got ${features.length}`,
-    );
-  }
-  return features;
-};
-
-const loadFeatures = async (
-  source: Source,
-  council: Council,
-  refresh: boolean,
-): Promise<readonly Feature[]> => {
-  const cachePath = join(CACHE_DIR, source.service, `${council.slug}.geojson`);
-  if (!refresh && (await Bun.file(cachePath).exists())) {
-    return readFeatures(cachePath);
-  }
-  const features = await download(source, council);
-  await mkdir(dirname(cachePath), { recursive: true });
-  await writeFile(cachePath, JSON.stringify(collection(features)));
-  return features;
-};
-
 const convert = async (
-  input: FeatureCollection,
+  features: readonly Feature[],
   commands: string,
   outputName: string,
 ): Promise<string | Uint8Array> => {
   const outputs = await mapshaper.applyCommands(
     `-i in.geojson ${commands} ${outputName} -quiet`,
-    { "in.geojson": JSON.stringify(input) },
+    { "in.geojson": JSON.stringify(collection(features)) },
   );
   const output = outputs[outputName];
   if (output === undefined) {
@@ -231,6 +122,33 @@ const writeOutput = async (path: string, contents: string | Uint8Array): Promise
   await mkdir(dirname(path), { recursive: true });
   await writeFile(path, contents);
   return Bun.file(path).size;
+};
+
+const loadMembers = (group: MapGroup, refresh: boolean): Promise<Members> =>
+  Promise.all(
+    group.area.parts.map(async (part) => {
+      const perSelector = await Promise.all(
+        part.selectors.map((selector) => loadSelector(group.source, selector, refresh)),
+      );
+      return [part, perSelector.flat()] as const;
+    }),
+  );
+
+// Thinning the whole file in one go keeps neighbours sharing the same border.
+const simplify = async (members: Members, source: Source): Promise<Members> => {
+  if (source.simplify === undefined) {
+    return members;
+  }
+  const output = await convert(
+    taggedFeatures(members, source),
+    `-simplify ${source.simplify} keep-shapes -o format=geojson`,
+    "out.geojson",
+  );
+  const parsed: unknown = JSON.parse(typeof output === "string" ? output : new TextDecoder().decode(output));
+  if (!isFeatureCollection(parsed) || parsed.features.length !== count(members)) {
+    throw new Error(`Simplifying ${source.service} lost shapes`);
+  }
+  return splitByPart(parsed.features, members);
 };
 
 const runHexScript = async (method: HexMethod, input: string, output: string): Promise<void> => {
@@ -246,78 +164,57 @@ const runHexScript = async (method: HexMethod, input: string, output: string): P
 
 // Hexagons are slow to compute, so each result is kept in .cache/hex/ and reused.
 const loadHexMembers = async (
-  source: Source,
-  slug: string,
+  group: MapGroup,
   method: HexMethod,
   members: Members,
   recompute: boolean,
 ): Promise<Members> => {
-  const name = `${slug}-${source.level}-${source.year}.geojson`;
+  const { source, area } = group;
+  const name = `${area.slug}-${source.level}-${source.year}.geojson`;
   const hexPath = join(HEX_CACHE_DIR, method, name);
   if (recompute || !(await Bun.file(hexPath).exists())) {
     const inputPath = join(HEX_CACHE_DIR, "input", method, name);
-    await writeOutput(inputPath, JSON.stringify(collection(hexInputFeatures(members, source))));
+    await writeOutput(inputPath, JSON.stringify(collection(taggedFeatures(members, source))));
     await runHexScript(method, inputPath, hexPath);
   }
   const hexagons = await readFeatures(hexPath);
-  const expected = members.flatMap(([, features]) => features).length;
-  if (hexagons.length !== expected) {
-    throw new Error(`${hexPath}: expected ${expected} hexagons, got ${hexagons.length}`);
+  if (hexagons.length !== count(members)) {
+    throw new Error(`${hexPath}: expected ${count(members)} hexagons, got ${hexagons.length}`);
   }
-  return splitByCouncil(hexagons, members);
+  return splitByPart(hexagons, members);
 };
 
-const buildGroup = async (
-  source: Source,
-  slug: string,
-  type: MapType,
-  members: Members,
-): Promise<BuiltFile> => {
-  const stem = outputStem(source, slug, type);
-  const layer = `${source.level}_${source.year}`;
-  const all = members.flatMap(([, features]) => features);
+const writeMap = async (group: MapGroup, type: MapType, members: Members): Promise<BuiltFile> => {
+  const { source, area } = group;
+  const stem = outputStem(source, area.slug, type);
+  const layer = `${source.level.replaceAll("-", "_")}_${source.year}`;
 
   const topojson = await convert(
-    collection(mapFeatures(all, source)),
+    mapFeatures(members, source),
     `name=${layer} -o format=topojson id-field=${source.codeField}`,
     "out.json",
   );
   const svg = await convert(
-    collection(
-      members.flatMap(([council, features]) => imageFeatures(features, council, source.level)),
-    ),
+    imageFeatures(members),
     `${imageCommands(type)} -o format=svg width=${IMAGE_WIDTH} margin=4`,
     "out.svg",
   );
 
   const bytes = await writeOutput(join(MAPS_DIR, `${stem}.json`), topojson);
   await writeOutput(join(IMAGES_DIR, `${stem}.svg`), svg);
-  return { path: join("maps", `${stem}.json`), areas: all.length, bytes };
+  return { path: `maps/${stem}.json`, areas: count(members), bytes };
 };
 
-const buildSource = async (source: Source, options: Options): Promise<readonly BuiltFile[]> => {
-  const members: Members = await Promise.all(
-    COUNCILS.map(
-      async (council) => [council, await loadFeatures(source, council, options.refresh)] as const,
-    ),
-  );
-  const groups: readonly (readonly [string, Members])[] = [
-    ...members.map((member) => [member[0].slug, [member]] as const),
-    [COMBINED_SLUG, members],
-  ];
-    return Promise.all(
-    groups.flatMap(([slug, group]) => [
-      ...mapTypes(source).map(async (type) =>
-        buildGroup(
-          source,
-          slug,
-          type,
-          type === "geographic"
-            ? group
-            : await loadHexMembers(source, slug, type, group, options.rehex),
-        ),
+const buildGroup = async (group: MapGroup, options: Options): Promise<readonly BuiltFile[]> => {
+  const members = await simplify(await loadMembers(group, options.refresh), group.source);
+  return Promise.all(
+    group.set.types.map(async (type) =>
+      writeMap(
+        group,
+        type,
+        type === "geographic" ? members : await loadHexMembers(group, type, members, options.rehex),
       ),
-    ]),
+    ),
   );
 };
 
@@ -325,10 +222,16 @@ const main = async (): Promise<void> => {
   const refresh = process.argv.includes("--refresh");
   // New downloads make the cached hexagons stale, so a refresh recomputes them too.
   const options: Options = { refresh, rehex: refresh || process.argv.includes("--rehex") };
-  // One source at a time keeps the load on the ONS servers light.
+  const only = process.argv.find((arg) => arg.startsWith("--only="))?.slice("--only=".length);
+  const groups = MAP_GROUPS.filter((group) => only === undefined || group.set.key === only);
+  if (groups.length === 0) {
+    throw new Error(`No map set is called ${only}`);
+  }
+
+  // One group at a time keeps the load on the data providers light.
   const built: BuiltFile[] = [];
-  for (const source of SOURCES) {
-    built.push(...(await buildSource(source, options)));
+  for (const group of groups) {
+    built.push(...(await buildGroup(group, options)));
   }
   console.table(
     built.map(({ path, areas, bytes }) => ({ file: path, areas, kB: Math.round(bytes / 1024) })),

@@ -81,6 +81,17 @@ a {
   background: var(--notice);
 }
 
+select {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+
 .slicers {
   display: flex;
   flex-wrap: wrap;
@@ -93,6 +104,10 @@ fieldset {
   padding: 0;
   border: 0;
   min-width: 0;
+}
+
+legend label {
+  font: inherit;
 }
 
 legend {
@@ -301,7 +316,7 @@ legend {
 
 .ranked li {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.7fr) auto;
   gap: 8px;
   align-items: center;
   padding: 5px 0;

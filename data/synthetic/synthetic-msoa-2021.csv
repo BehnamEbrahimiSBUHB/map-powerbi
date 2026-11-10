@@ -1,49 +1,409 @@
 MSOA21CD,MSOA21NM,council,population,median_age,index_score
-W02000168,Swansea 001,Swansea,7967,44.3,21.6
-W02000169,Swansea 002,Swansea,8637,44.3,11.7
-W02000170,Swansea 003,Swansea,8049,44,12.1
-W02000171,Swansea 004,Swansea,9549,45.4,16.8
-W02000172,Swansea 005,Swansea,8684,46.1,32
-W02000173,Swansea 006,Swansea,6895,43.7,16.3
-W02000174,Swansea 007,Swansea,7396,45.7,21.5
-W02000175,Swansea 008,Swansea,8098,40,40.4
-W02000176,Swansea 009,Swansea,7689,42.2,35.2
-W02000177,Swansea 010,Swansea,8970,41.4,44.1
-W02000178,Swansea 011,Swansea,6949,41.7,33.9
-W02000179,Swansea 012,Swansea,7582,46.8,27.6
-W02000180,Swansea 013,Swansea,9290,42.6,27.6
-W02000181,Swansea 014,Swansea,6292,40.1,36.2
-W02000182,Swansea 015,Swansea,7663,40.9,57.6
-W02000183,Swansea 016,Swansea,8353,38.2,39.7
-W02000184,Swansea 017,Swansea,8733,42.9,41.5
-W02000185,Swansea 018,Swansea,9167,46.3,28.1
-W02000186,Swansea 019,Swansea,9237,35,44.2
-W02000188,Swansea 021,Swansea,7455,39.5,50.5
-W02000189,Swansea 022,Swansea,6540,41,43.4
-W02000191,Swansea 024,Swansea,6340,37.1,44.7
-W02000192,Swansea 025,Swansea,9573,33.1,81.8
-W02000193,Swansea 026,Swansea,6479,33.5,64.1
-W02000194,Swansea 027,Swansea,8787,42.1,49.7
-W02000195,Swansea 028,Swansea,8164,44.9,13.6
-W02000196,Swansea 029,Swansea,6384,45.5,38.5
-W02000197,Swansea 030,Swansea,7660,47.2,14.6
-W02000198,Swansea 031,Swansea,9250,44.3,17.4
-W02000200,Neath Port Talbot 002,Neath Port Talbot,8897,45.3,10.4
-W02000201,Neath Port Talbot 003,Neath Port Talbot,9147,48.4,14.5
-W02000202,Neath Port Talbot 004,Neath Port Talbot,9115,47.5,11.5
-W02000204,Neath Port Talbot 006,Neath Port Talbot,6395,37.9,51.6
-W02000205,Neath Port Talbot 007,Neath Port Talbot,7135,38.7,64.1
-W02000206,Neath Port Talbot 008,Neath Port Talbot,7643,34.8,74.6
-W02000207,Neath Port Talbot 009,Neath Port Talbot,6091,39,50.8
-W02000208,Neath Port Talbot 010,Neath Port Talbot,7247,41.8,23.1
-W02000210,Neath Port Talbot 012,Neath Port Talbot,9315,34,63.2
-W02000211,Neath Port Talbot 013,Neath Port Talbot,9105,37.7,59.1
-W02000212,Neath Port Talbot 014,Neath Port Talbot,8003,39.9,16.9
-W02000213,Neath Port Talbot 015,Neath Port Talbot,6256,41.6,50.7
-W02000214,Neath Port Talbot 016,Neath Port Talbot,6953,38.3,46.7
-W02000215,Neath Port Talbot 017,Neath Port Talbot,7926,34.8,63.9
-W02000216,Neath Port Talbot 018,Neath Port Talbot,6830,36.7,40.9
-W02000217,Neath Port Talbot 019,Neath Port Talbot,8399,43.4,26.8
-W02000417,Neath Port Talbot 020,Neath Port Talbot,6260,44.5,5
-W02000427,Neath Port Talbot 021,Neath Port Talbot,9432,43.4,11
-W02000428,Swansea 032,Swansea,8092,45,23.7
+W02000001,Isle of Anglesey 001,Isle of Anglesey,8311,48.3,24.9
+W02000002,Isle of Anglesey 002,Isle of Anglesey,6842,48.3,5.5
+W02000003,Isle of Anglesey 003,Isle of Anglesey,8527,44.2,27.1
+W02000004,Isle of Anglesey 004,Isle of Anglesey,8646,45.9,20.4
+W02000005,Isle of Anglesey 005,Isle of Anglesey,6365,46.8,10.4
+W02000006,Isle of Anglesey 006,Isle of Anglesey,9065,46.1,10.1
+W02000007,Isle of Anglesey 007,Isle of Anglesey,9623,43.2,13.5
+W02000008,Isle of Anglesey 008,Isle of Anglesey,6379,48.2,29.2
+W02000009,Isle of Anglesey 009,Isle of Anglesey,7778,44.3,4.6
+W02000010,Gwynedd 001,Gwynedd,8733,47.6,28.5
+W02000011,Gwynedd 002,Gwynedd,6150,45.4,14.3
+W02000012,Gwynedd 003,Gwynedd,6550,46.9,17.3
+W02000013,Gwynedd 004,Gwynedd,9436,48.7,12.3
+W02000014,Gwynedd 005,Gwynedd,5983,45.4,14.2
+W02000015,Gwynedd 006,Gwynedd,8678,47.5,25.3
+W02000016,Gwynedd 007,Gwynedd,6182,45.1,28.1
+W02000017,Gwynedd 008,Gwynedd,8772,43.9,17.4
+W02000018,Gwynedd 009,Gwynedd,9536,45.2,5.9
+W02000019,Gwynedd 010,Gwynedd,6559,45.6,16.8
+W02000020,Gwynedd 011,Gwynedd,9697,47.8,27.4
+W02000021,Gwynedd 012,Gwynedd,8795,48.6,6.6
+W02000022,Gwynedd 013,Gwynedd,8019,45,16.1
+W02000023,Gwynedd 014,Gwynedd,8797,45.9,2.5
+W02000024,Gwynedd 015,Gwynedd,8994,46.8,20
+W02000025,Gwynedd 016,Gwynedd,8947,44.6,18
+W02000026,Gwynedd 017,Gwynedd,7073,45.4,9.1
+W02000027,Conwy 001,Conwy,5928,44,24.2
+W02000028,Conwy 002,Conwy,9284,48.7,8.6
+W02000029,Conwy 003,Conwy,8835,43.7,17.1
+W02000030,Conwy 004,Conwy,7881,48.2,11
+W02000031,Conwy 005,Conwy,6585,45.1,19.2
+W02000032,Conwy 006,Conwy,6824,47.3,5.5
+W02000033,Conwy 007,Conwy,6110,43.9,14.9
+W02000034,Conwy 008,Conwy,8611,45.5,12.4
+W02000035,Conwy 009,Conwy,7708,43.3,26.7
+W02000036,Conwy 010,Conwy,7652,45.8,11.1
+W02000037,Conwy 011,Conwy,6146,48.9,27.2
+W02000038,Conwy 012,Conwy,9612,46.6,17
+W02000039,Conwy 013,Conwy,7826,45.3,12.9
+W02000040,Conwy 014,Conwy,8273,44.4,6.7
+W02000041,Conwy 015,Conwy,8266,45.2,4.6
+W02000042,Denbighshire 001,Denbighshire,7415,46.1,25.7
+W02000043,Denbighshire 002,Denbighshire,6105,46.5,8.9
+W02000044,Denbighshire 003,Denbighshire,9587,47.3,18.5
+W02000045,Denbighshire 004,Denbighshire,7483,43.1,6.8
+W02000047,Denbighshire 006,Denbighshire,9057,46.9,29
+W02000049,Denbighshire 008,Denbighshire,7456,43.9,7
+W02000050,Denbighshire 009,Denbighshire,8386,48.2,13
+W02000051,Denbighshire 010,Denbighshire,7443,44.7,29.8
+W02000052,Denbighshire 011,Denbighshire,9309,45.4,4.5
+W02000053,Denbighshire 012,Denbighshire,7281,47.3,9.6
+W02000054,Denbighshire 013,Denbighshire,8333,45.7,11.7
+W02000055,Denbighshire 014,Denbighshire,7432,44.6,10.5
+W02000056,Denbighshire 015,Denbighshire,6018,48.7,14.7
+W02000057,Denbighshire 016,Denbighshire,8270,48.3,23.9
+W02000058,Flintshire 001,Flintshire,7921,45.7,22.2
+W02000059,Flintshire 002,Flintshire,7914,45.9,28.2
+W02000060,Flintshire 003,Flintshire,6654,45.2,28.8
+W02000061,Flintshire 004,Flintshire,8904,46.9,6
+W02000062,Flintshire 005,Flintshire,8712,46.2,29.5
+W02000063,Flintshire 006,Flintshire,9470,43.8,14
+W02000064,Flintshire 007,Flintshire,6149,43.6,3.9
+W02000065,Flintshire 008,Flintshire,7056,46.9,26.9
+W02000066,Flintshire 009,Flintshire,7475,44.4,4.9
+W02000067,Flintshire 010,Flintshire,9694,46.3,27.7
+W02000068,Flintshire 011,Flintshire,8224,46.4,13.1
+W02000069,Flintshire 012,Flintshire,6088,46.7,15.1
+W02000070,Flintshire 013,Flintshire,8262,48.4,29.1
+W02000071,Flintshire 014,Flintshire,6382,46.2,1.7
+W02000072,Flintshire 015,Flintshire,6633,47.6,31.6
+W02000073,Flintshire 016,Flintshire,8611,47,1.2
+W02000074,Flintshire 017,Flintshire,9423,44.1,11.6
+W02000075,Flintshire 018,Flintshire,7295,42.9,19.1
+W02000076,Flintshire 019,Flintshire,8953,48.6,30.9
+W02000077,Flintshire 020,Flintshire,6016,43.3,19.1
+W02000080,Wrexham 003,Wrexham,9641,42.7,33.2
+W02000081,Wrexham 004,Wrexham,7993,40.3,42.9
+W02000082,Wrexham 005,Wrexham,6263,41.5,28.3
+W02000083,Wrexham 006,Wrexham,8416,43,26.1
+W02000085,Wrexham 008,Wrexham,9488,36.8,49.7
+W02000087,Wrexham 010,Wrexham,6076,34.8,45.6
+W02000088,Wrexham 011,Wrexham,6527,33.6,52.4
+W02000089,Wrexham 012,Wrexham,7413,33.4,58.8
+W02000090,Wrexham 013,Wrexham,6783,43.1,10.9
+W02000091,Wrexham 014,Wrexham,8871,39.2,30
+W02000092,Wrexham 015,Wrexham,6875,41.7,40.2
+W02000093,Wrexham 016,Wrexham,6945,43.1,38.9
+W02000094,Wrexham 017,Wrexham,8869,46.8,7.3
+W02000095,Wrexham 018,Wrexham,6178,47,14.2
+W02000096,Wrexham 019,Wrexham,6931,45.1,20.9
+W02000097,Powys 001,Powys,9370,44.8,28.3
+W02000098,Powys 002,Powys,8355,46.2,11.9
+W02000099,Powys 003,Powys,6382,46.8,23.8
+W02000100,Powys 004,Powys,7985,48.4,11.6
+W02000101,Powys 005,Powys,8979,44.4,17.8
+W02000102,Powys 006,Powys,7784,45.5,17.6
+W02000103,Powys 007,Powys,6430,44.2,4.2
+W02000104,Powys 008,Powys,7962,44.7,3.9
+W02000105,Powys 009,Powys,9617,44.8,4.3
+W02000106,Powys 010,Powys,8969,46.8,19.4
+W02000107,Powys 011,Powys,9358,46.9,4.4
+W02000108,Powys 012,Powys,8375,47.7,26.2
+W02000109,Powys 013,Powys,9497,46.9,26.7
+W02000110,Powys 014,Powys,7582,47.3,29
+W02000111,Powys 015,Powys,7121,47.6,11.7
+W02000113,Powys 017,Powys,9673,45.6,23.8
+W02000114,Powys 018,Powys,5862,43.2,23.3
+W02000116,Ceredigion 001,Ceredigion,7177,44.9,1.1
+W02000117,Ceredigion 002,Ceredigion,9070,48.8,19.9
+W02000118,Ceredigion 003,Ceredigion,8526,47.3,13.8
+W02000120,Ceredigion 005,Ceredigion,7222,45.3,9.2
+W02000122,Ceredigion 007,Ceredigion,7484,44.8,7.2
+W02000123,Ceredigion 008,Ceredigion,6671,46.5,17.4
+W02000124,Ceredigion 009,Ceredigion,8624,45.3,27.5
+W02000125,Ceredigion 010,Ceredigion,6357,45,22.5
+W02000126,Pembrokeshire 001,Pembrokeshire,8211,43,0.5
+W02000127,Pembrokeshire 002,Pembrokeshire,6618,48.3,10.9
+W02000128,Pembrokeshire 003,Pembrokeshire,8752,45.7,3.8
+W02000129,Pembrokeshire 004,Pembrokeshire,6190,44.6,20.6
+W02000130,Pembrokeshire 005,Pembrokeshire,8557,48.5,28.4
+W02000131,Pembrokeshire 006,Pembrokeshire,9444,44.4,4.4
+W02000132,Pembrokeshire 007,Pembrokeshire,9139,46.3,11.3
+W02000133,Pembrokeshire 008,Pembrokeshire,9620,48.8,23
+W02000134,Pembrokeshire 009,Pembrokeshire,9250,45.3,27.4
+W02000135,Pembrokeshire 010,Pembrokeshire,6570,43.4,16.7
+W02000136,Pembrokeshire 011,Pembrokeshire,5901,46,12.2
+W02000137,Pembrokeshire 012,Pembrokeshire,8189,46.9,24.7
+W02000138,Pembrokeshire 013,Pembrokeshire,7887,48.2,22.6
+W02000139,Pembrokeshire 014,Pembrokeshire,6119,46,1.5
+W02000140,Pembrokeshire 015,Pembrokeshire,8669,49,24.4
+W02000141,Pembrokeshire 016,Pembrokeshire,7923,48.5,25.1
+W02000142,Carmarthenshire 001,Carmarthenshire,5905,45.4,8.1
+W02000143,Carmarthenshire 002,Carmarthenshire,8027,44.5,10.3
+W02000144,Carmarthenshire 003,Carmarthenshire,7191,46.4,10.8
+W02000145,Carmarthenshire 004,Carmarthenshire,9424,44.9,7.2
+W02000146,Carmarthenshire 005,Carmarthenshire,9281,44.3,16.3
+W02000147,Carmarthenshire 006,Carmarthenshire,7646,45.8,6.7
+W02000148,Carmarthenshire 007,Carmarthenshire,9690,48.2,22.5
+W02000149,Carmarthenshire 008,Carmarthenshire,8936,44.3,26.5
+W02000151,Carmarthenshire 010,Carmarthenshire,8090,46.5,6.1
+W02000152,Carmarthenshire 011,Carmarthenshire,7344,44,28.5
+W02000153,Carmarthenshire 012,Carmarthenshire,7733,43.4,29.5
+W02000154,Carmarthenshire 013,Carmarthenshire,6228,47.7,16
+W02000156,Carmarthenshire 015,Carmarthenshire,7041,45.3,25.9
+W02000157,Carmarthenshire 016,Carmarthenshire,7332,47.9,19.1
+W02000158,Carmarthenshire 017,Carmarthenshire,9223,47.3,10.8
+W02000159,Carmarthenshire 018,Carmarthenshire,9423,46.2,0.7
+W02000160,Carmarthenshire 019,Carmarthenshire,8557,47.3,2.1
+W02000161,Carmarthenshire 020,Carmarthenshire,9454,45.3,20.5
+W02000162,Carmarthenshire 021,Carmarthenshire,9096,45.5,28.5
+W02000163,Carmarthenshire 022,Carmarthenshire,8718,46.8,8.4
+W02000164,Carmarthenshire 023,Carmarthenshire,8229,42.9,20.5
+W02000165,Carmarthenshire 024,Carmarthenshire,6597,45,1.7
+W02000166,Carmarthenshire 025,Carmarthenshire,8707,46.6,23.5
+W02000167,Carmarthenshire 026,Carmarthenshire,6797,45.6,30
+W02000168,Swansea 001,Swansea,7967,44.3,21.8
+W02000169,Swansea 002,Swansea,8637,44.3,11.6
+W02000170,Swansea 003,Swansea,8049,44.1,11.8
+W02000171,Swansea 004,Swansea,9549,45.5,16.5
+W02000172,Swansea 005,Swansea,8684,46.1,31.7
+W02000173,Swansea 006,Swansea,6895,43.6,17
+W02000174,Swansea 007,Swansea,7396,45.8,20.9
+W02000175,Swansea 008,Swansea,8098,39.6,42.3
+W02000176,Swansea 009,Swansea,7689,42.2,35.3
+W02000177,Swansea 010,Swansea,8970,41.4,43.8
+W02000178,Swansea 011,Swansea,6949,41.6,34.2
+W02000179,Swansea 012,Swansea,7582,46.6,28.6
+W02000180,Swansea 013,Swansea,9290,42.4,28.5
+W02000181,Swansea 014,Swansea,6292,40.5,34.8
+W02000182,Swansea 015,Swansea,7663,40.8,57.7
+W02000183,Swansea 016,Swansea,8353,38.9,36.7
+W02000184,Swansea 017,Swansea,8733,42.8,41.8
+W02000185,Swansea 018,Swansea,9167,46.2,28.5
+W02000186,Swansea 019,Swansea,9237,35.2,43.5
+W02000188,Swansea 021,Swansea,7455,40.2,47.7
+W02000189,Swansea 022,Swansea,6540,41,43.5
+W02000191,Swansea 024,Swansea,6340,38,41.2
+W02000192,Swansea 025,Swansea,9573,33.3,80.6
+W02000193,Swansea 026,Swansea,6479,33.6,63.5
+W02000194,Swansea 027,Swansea,8787,42,50.4
+W02000195,Swansea 028,Swansea,8164,44.5,15.4
+W02000196,Swansea 029,Swansea,6384,45,40.3
+W02000197,Swansea 030,Swansea,7660,47.2,14.5
+W02000198,Swansea 031,Swansea,9250,44.4,17.1
+W02000200,Neath Port Talbot 002,Neath Port Talbot,8897,45.2,10.7
+W02000201,Neath Port Talbot 003,Neath Port Talbot,9147,48.4,14.4
+W02000202,Neath Port Talbot 004,Neath Port Talbot,9115,47.5,11.8
+W02000204,Neath Port Talbot 006,Neath Port Talbot,6395,38.5,49.2
+W02000205,Neath Port Talbot 007,Neath Port Talbot,7135,39.5,60.5
+W02000206,Neath Port Talbot 008,Neath Port Talbot,7643,34.9,74
+W02000207,Neath Port Talbot 009,Neath Port Talbot,6091,39.7,47.6
+W02000208,Neath Port Talbot 010,Neath Port Talbot,7247,41.3,25.2
+W02000210,Neath Port Talbot 012,Neath Port Talbot,9315,34.1,62.9
+W02000211,Neath Port Talbot 013,Neath Port Talbot,9105,38.3,56.5
+W02000212,Neath Port Talbot 014,Neath Port Talbot,8003,40.1,16.1
+W02000213,Neath Port Talbot 015,Neath Port Talbot,6256,41.5,51.4
+W02000214,Neath Port Talbot 016,Neath Port Talbot,6953,38.8,44.5
+W02000215,Neath Port Talbot 017,Neath Port Talbot,7926,34.4,65.9
+W02000216,Neath Port Talbot 018,Neath Port Talbot,6830,37.2,38.7
+W02000217,Neath Port Talbot 019,Neath Port Talbot,8399,42.9,28.9
+W02000218,Bridgend 001,Bridgend,5908,47.3,30.6
+W02000219,Bridgend 002,Bridgend,6220,45,25.4
+W02000220,Bridgend 003,Bridgend,8489,46.2,26
+W02000221,Bridgend 004,Bridgend,5857,43.4,5.7
+W02000222,Bridgend 005,Bridgend,7977,43,22.6
+W02000223,Bridgend 006,Bridgend,9009,47.3,6.1
+W02000224,Bridgend 007,Bridgend,9435,45.3,6.9
+W02000225,Bridgend 008,Bridgend,7381,43.6,21.1
+W02000226,Bridgend 009,Bridgend,5888,47.5,14.8
+W02000227,Bridgend 010,Bridgend,7604,43.1,19.3
+W02000228,Bridgend 011,Bridgend,6250,48.8,13.8
+W02000229,Bridgend 012,Bridgend,8107,47.7,30.8
+W02000230,Bridgend 013,Bridgend,6873,47.4,29.5
+W02000231,Bridgend 014,Bridgend,9663,46.1,25.6
+W02000232,Bridgend 015,Bridgend,8304,46.5,4.9
+W02000233,Bridgend 016,Bridgend,8408,47.9,20.2
+W02000234,Bridgend 017,Bridgend,8062,45.9,11.3
+W02000235,Bridgend 018,Bridgend,6344,42.5,19.2
+W02000236,Bridgend 019,Bridgend,9497,48.5,2
+W02000237,Vale of Glamorgan 001,Vale of Glamorgan,8173,48.4,28.7
+W02000238,Vale of Glamorgan 002,Vale of Glamorgan,7691,46.8,14.5
+W02000239,Vale of Glamorgan 003,Vale of Glamorgan,8402,42.7,5.7
+W02000240,Vale of Glamorgan 004,Vale of Glamorgan,8608,38.1,27.2
+W02000241,Vale of Glamorgan 005,Vale of Glamorgan,9043,41,24.8
+W02000242,Vale of Glamorgan 006,Vale of Glamorgan,8248,40.2,21.9
+W02000243,Vale of Glamorgan 007,Vale of Glamorgan,5904,42.3,12.4
+W02000244,Vale of Glamorgan 008,Vale of Glamorgan,9257,40.6,35.9
+W02000245,Vale of Glamorgan 009,Vale of Glamorgan,6648,46.3,16.5
+W02000246,Vale of Glamorgan 010,Vale of Glamorgan,8067,42.5,30.3
+W02000247,Vale of Glamorgan 011,Vale of Glamorgan,9377,43.6,11.1
+W02000248,Vale of Glamorgan 012,Vale of Glamorgan,7015,42.9,30.1
+W02000249,Vale of Glamorgan 013,Vale of Glamorgan,8471,44.1,22
+W02000250,Vale of Glamorgan 014,Vale of Glamorgan,9271,47.4,24
+W02000251,Vale of Glamorgan 015,Vale of Glamorgan,9030,46.1,21.8
+W02000252,Rhondda Cynon Taf 001,Rhondda Cynon Taf,7192,48.4,8.3
+W02000253,Rhondda Cynon Taf 002,Rhondda Cynon Taf,6712,47.7,2.5
+W02000254,Rhondda Cynon Taf 003,Rhondda Cynon Taf,7066,48.6,20.7
+W02000255,Rhondda Cynon Taf 004,Rhondda Cynon Taf,8170,47,17
+W02000256,Rhondda Cynon Taf 005,Rhondda Cynon Taf,6976,45.3,6.3
+W02000257,Rhondda Cynon Taf 006,Rhondda Cynon Taf,6592,46.9,8.6
+W02000258,Rhondda Cynon Taf 007,Rhondda Cynon Taf,7038,46.7,17.5
+W02000259,Rhondda Cynon Taf 008,Rhondda Cynon Taf,9343,44.6,6.4
+W02000260,Rhondda Cynon Taf 009,Rhondda Cynon Taf,7425,46.4,10.6
+W02000261,Rhondda Cynon Taf 010,Rhondda Cynon Taf,7842,43.6,17.6
+W02000262,Rhondda Cynon Taf 011,Rhondda Cynon Taf,8526,45.5,11.4
+W02000263,Rhondda Cynon Taf 012,Rhondda Cynon Taf,8861,45.4,2.3
+W02000264,Rhondda Cynon Taf 013,Rhondda Cynon Taf,8937,43.2,6
+W02000265,Rhondda Cynon Taf 014,Rhondda Cynon Taf,7459,44.2,17.5
+W02000266,Rhondda Cynon Taf 015,Rhondda Cynon Taf,8505,43.8,3.6
+W02000267,Rhondda Cynon Taf 016,Rhondda Cynon Taf,8921,47.6,14.4
+W02000268,Rhondda Cynon Taf 017,Rhondda Cynon Taf,5918,44.8,10.6
+W02000269,Rhondda Cynon Taf 018,Rhondda Cynon Taf,7906,44.3,18.5
+W02000270,Rhondda Cynon Taf 019,Rhondda Cynon Taf,9241,43,12.9
+W02000271,Rhondda Cynon Taf 020,Rhondda Cynon Taf,6175,46.1,9.5
+W02000272,Rhondda Cynon Taf 021,Rhondda Cynon Taf,9142,45.8,27.5
+W02000273,Rhondda Cynon Taf 022,Rhondda Cynon Taf,7012,44.8,19.7
+W02000274,Rhondda Cynon Taf 023,Rhondda Cynon Taf,6221,46.8,6.4
+W02000275,Rhondda Cynon Taf 024,Rhondda Cynon Taf,9599,45.2,20.5
+W02000276,Rhondda Cynon Taf 025,Rhondda Cynon Taf,7667,47.5,8.2
+W02000277,Rhondda Cynon Taf 026,Rhondda Cynon Taf,6130,47.7,16.2
+W02000278,Rhondda Cynon Taf 027,Rhondda Cynon Taf,7501,43.7,13.5
+W02000279,Rhondda Cynon Taf 028,Rhondda Cynon Taf,7687,45.4,13.9
+W02000280,Rhondda Cynon Taf 029,Rhondda Cynon Taf,9711,45.4,16.6
+W02000281,Rhondda Cynon Taf 030,Rhondda Cynon Taf,6427,43.7,29.1
+W02000282,Rhondda Cynon Taf 031,Rhondda Cynon Taf,9306,45.9,26.9
+W02000284,Merthyr Tydfil 002,Merthyr Tydfil,9150,47.6,12.7
+W02000285,Merthyr Tydfil 003,Merthyr Tydfil,8981,46.9,6.9
+W02000286,Merthyr Tydfil 004,Merthyr Tydfil,7779,45.3,8.9
+W02000287,Merthyr Tydfil 005,Merthyr Tydfil,9135,46.7,23.3
+W02000288,Merthyr Tydfil 006,Merthyr Tydfil,7796,43.2,4.6
+W02000289,Merthyr Tydfil 007,Merthyr Tydfil,8899,43.8,13.4
+W02000290,Caerphilly 001,Caerphilly,7711,47.1,3.3
+W02000291,Caerphilly 002,Caerphilly,6675,47.5,2.2
+W02000292,Caerphilly 003,Caerphilly,7585,44.5,3.2
+W02000293,Caerphilly 004,Caerphilly,6093,48.6,29.1
+W02000294,Caerphilly 005,Caerphilly,9241,46.6,9.7
+W02000295,Caerphilly 006,Caerphilly,8303,47.8,15.2
+W02000296,Caerphilly 007,Caerphilly,8234,47.4,4.5
+W02000297,Caerphilly 008,Caerphilly,8352,44.6,7.7
+W02000298,Caerphilly 009,Caerphilly,9434,47.9,31.1
+W02000299,Caerphilly 010,Caerphilly,8488,47.9,22.4
+W02000300,Caerphilly 011,Caerphilly,7454,45.5,24.8
+W02000301,Caerphilly 012,Caerphilly,6355,45.8,6.8
+W02000302,Caerphilly 013,Caerphilly,7318,43.9,26.1
+W02000303,Caerphilly 014,Caerphilly,9150,47.5,4.9
+W02000304,Caerphilly 015,Caerphilly,8402,46.2,31.6
+W02000305,Caerphilly 016,Caerphilly,7358,46,16.7
+W02000306,Caerphilly 017,Caerphilly,6954,43.4,17.1
+W02000307,Caerphilly 018,Caerphilly,7503,43.3,31.3
+W02000308,Caerphilly 019,Caerphilly,9621,48.4,12.8
+W02000309,Caerphilly 020,Caerphilly,7290,43.5,6.5
+W02000310,Caerphilly 021,Caerphilly,6072,47.6,13.5
+W02000311,Caerphilly 022,Caerphilly,7607,47.9,32.8
+W02000312,Caerphilly 023,Caerphilly,7684,45.5,16.7
+W02000313,Caerphilly 024,Caerphilly,6202,44.8,15.1
+W02000314,Blaenau Gwent 001,Blaenau Gwent,8973,45.6,14.5
+W02000315,Blaenau Gwent 002,Blaenau Gwent,8234,48.1,23.9
+W02000316,Blaenau Gwent 003,Blaenau Gwent,6262,46.5,5.9
+W02000317,Blaenau Gwent 004,Blaenau Gwent,8547,45.9,22.2
+W02000318,Blaenau Gwent 005,Blaenau Gwent,9012,43,4.5
+W02000319,Blaenau Gwent 006,Blaenau Gwent,7631,44.8,16.9
+W02000320,Blaenau Gwent 007,Blaenau Gwent,6982,45.9,3.5
+W02000321,Blaenau Gwent 008,Blaenau Gwent,7607,48.9,4.2
+W02000322,Blaenau Gwent 009,Blaenau Gwent,6331,45.2,9.6
+W02000323,Torfaen 001,Torfaen,6067,45.5,5.8
+W02000324,Torfaen 002,Torfaen,8960,45,4.3
+W02000325,Torfaen 003,Torfaen,6398,44.9,3.1
+W02000326,Torfaen 004,Torfaen,7598,45.8,25
+W02000327,Torfaen 005,Torfaen,6326,43.3,6.9
+W02000328,Torfaen 006,Torfaen,7850,43,10.9
+W02000329,Torfaen 007,Torfaen,9440,46,18
+W02000330,Torfaen 008,Torfaen,7105,46.4,30.9
+W02000331,Torfaen 009,Torfaen,7390,43.7,27.5
+W02000332,Torfaen 010,Torfaen,5858,43.2,17.4
+W02000333,Torfaen 011,Torfaen,6141,46.3,14.9
+W02000334,Torfaen 012,Torfaen,6191,46.1,39.7
+W02000335,Torfaen 013,Torfaen,5990,44.6,43.9
+W02000336,Monmouthshire 001,Monmouthshire,7287,46.7,3.5
+W02000337,Monmouthshire 002,Monmouthshire,6906,46.7,4.7
+W02000338,Monmouthshire 003,Monmouthshire,6970,43.1,7.1
+W02000339,Monmouthshire 004,Monmouthshire,6039,48,24.6
+W02000340,Monmouthshire 005,Monmouthshire,7323,48.1,22.2
+W02000341,Monmouthshire 006,Monmouthshire,7994,47.4,8.7
+W02000342,Monmouthshire 007,Monmouthshire,9503,43,23.1
+W02000343,Monmouthshire 008,Monmouthshire,6294,45.8,12.5
+W02000344,Monmouthshire 009,Monmouthshire,7925,45.8,10.5
+W02000345,Monmouthshire 010,Monmouthshire,8759,46.8,15
+W02000346,Monmouthshire 011,Monmouthshire,9686,44.4,16.1
+W02000347,Newport 001,Newport,7634,40.3,27.8
+W02000348,Newport 002,Newport,9463,41.3,42.2
+W02000349,Newport 003,Newport,8511,38.3,32.7
+W02000350,Newport 004,Newport,8975,46.1,10.8
+W02000351,Newport 005,Newport,7967,40.8,37.9
+W02000352,Newport 006,Newport,6833,37.8,46.2
+W02000353,Newport 007,Newport,6129,36.2,46.2
+W02000354,Newport 008,Newport,9505,41.6,45.5
+W02000355,Newport 009,Newport,6761,38.1,40.6
+W02000356,Newport 010,Newport,9123,39.8,36.9
+W02000357,Newport 011,Newport,9474,34.3,54.6
+W02000358,Newport 012,Newport,6024,33.8,48.7
+W02000359,Newport 013,Newport,6841,37.1,59.9
+W02000360,Newport 014,Newport,7861,34,79.2
+W02000361,Newport 015,Newport,8825,39.7,47.2
+W02000362,Newport 016,Newport,9523,43,44.9
+W02000363,Newport 017,Newport,7881,35.1,48.1
+W02000364,Newport 018,Newport,8361,37.6,35
+W02000365,Newport 019,Newport,6518,42.5,38.5
+W02000366,Newport 020,Newport,7824,44.7,36.4
+W02000367,Cardiff 001,Cardiff,8267,41.6,32.4
+W02000368,Cardiff 002,Cardiff,8599,46.2,15.9
+W02000369,Cardiff 003,Cardiff,8921,40.7,27.1
+W02000370,Cardiff 004,Cardiff,6427,42.8,17
+W02000371,Cardiff 005,Cardiff,9657,39.8,28
+W02000372,Cardiff 006,Cardiff,6519,43.4,33.7
+W02000373,Cardiff 007,Cardiff,8260,43.8,22.2
+W02000374,Cardiff 008,Cardiff,8016,44.9,40.6
+W02000375,Cardiff 009,Cardiff,9564,42.8,43.5
+W02000376,Cardiff 010,Cardiff,8149,42.8,38.5
+W02000377,Cardiff 011,Cardiff,6795,41.2,12.1
+W02000378,Cardiff 012,Cardiff,9350,41.6,29.2
+W02000379,Cardiff 013,Cardiff,7777,43.6,22.1
+W02000380,Cardiff 014,Cardiff,7406,43.9,30.2
+W02000381,Cardiff 015,Cardiff,6324,40.4,22.3
+W02000382,Cardiff 016,Cardiff,6579,42.8,41.1
+W02000383,Cardiff 017,Cardiff,9001,40.9,38.7
+W02000384,Cardiff 018,Cardiff,6271,39.8,49.7
+W02000385,Cardiff 019,Cardiff,6399,41.1,54.4
+W02000386,Cardiff 020,Cardiff,6327,42.5,34.6
+W02000387,Cardiff 021,Cardiff,7180,38.9,24.4
+W02000388,Cardiff 022,Cardiff,7898,41.9,35.5
+W02000389,Cardiff 023,Cardiff,8234,41.7,39.6
+W02000390,Cardiff 024,Cardiff,6129,41.1,34.4
+W02000391,Cardiff 025,Cardiff,8843,40.8,35.1
+W02000392,Cardiff 026,Cardiff,7554,40.1,33.1
+W02000393,Cardiff 027,Cardiff,6009,39.7,33.1
+W02000394,Cardiff 028,Cardiff,8901,37,57.9
+W02000395,Cardiff 029,Cardiff,7397,41.9,41.8
+W02000396,Cardiff 030,Cardiff,6889,38.9,63.7
+W02000397,Cardiff 031,Cardiff,9056,43.4,27.5
+W02000398,Cardiff 032,Cardiff,6053,33.9,53.1
+W02000399,Cardiff 033,Cardiff,6262,36.2,57
+W02000400,Cardiff 034,Cardiff,7848,35.8,51.1
+W02000401,Cardiff 035,Cardiff,8601,36.2,59.1
+W02000402,Cardiff 036,Cardiff,7006,38.9,48.6
+W02000403,Cardiff 037,Cardiff,8760,40.7,35.7
+W02000404,Cardiff 038,Cardiff,6442,38.3,49.5
+W02000405,Cardiff 039,Cardiff,7752,44.4,37.3
+W02000406,Cardiff 040,Cardiff,7084,38.7,56.7
+W02000407,Cardiff 041,Cardiff,7204,38.5,49.2
+W02000408,Cardiff 042,Cardiff,9407,34.2,71.1
+W02000409,Cardiff 043,Cardiff,7619,40,27.6
+W02000410,Cardiff 044,Cardiff,8756,36.2,53.7
+W02000411,Cardiff 045,Cardiff,8596,43.2,21.5
+W02000412,Cardiff 046,Cardiff,7063,38.5,51
+W02000414,Powys 020,Powys,6544,45.4,12.3
+W02000415,Merthyr Tydfil 008,Merthyr Tydfil,7870,45.7,29.8
+W02000416,Powys 021,Powys,6504,45.1,14
+W02000417,Neath Port Talbot 020,Neath Port Talbot,6260,44.4,5.1
+W02000418,Carmarthenshire 027,Carmarthenshire,7894,45.5,27.5
+W02000419,Denbighshire 017,Denbighshire,7535,44.8,9.9
+W02000421,Ceredigion 011,Ceredigion,5915,45.7,11.1
+W02000422,Cardiff 048,Cardiff,8873,39.3,23.2
+W02000423,Cardiff 049,Cardiff,7160,36,66.6
+W02000424,Wrexham 021,Wrexham,6226,42.6,39.5
+W02000425,Wrexham 022,Wrexham,7593,44.1,32.2
+W02000426,Wrexham 023,Wrexham,8629,37.7,55.7
+W02000427,Neath Port Talbot 021,Neath Port Talbot,9432,44,8.2
+W02000428,Swansea 032,Swansea,8092,44.9,24.2

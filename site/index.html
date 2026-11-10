@@ -3,93 +3,54 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Swansea and Neath Port Talbot map explorer</title>
+    <title>Power BI shape map explorer for Wales and the UK</title>
     <meta
       name="description"
-      content="Preview the Power BI shape map files for Swansea and Neath Port Talbot as geographic, hexmap and geogrid maps, using synthetic sample data."
+      content="Preview Power BI shape map files for Swansea, Neath Port Talbot, Welsh health boards, Wales and the UK as geographic, hexmap and geogrid maps, with sample data and WIMD 2025."
     />
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="assets/main.js"></script>
   </head>
   <body>
     <header class="page-header">
-      <h1>Swansea and Neath Port Talbot map explorer</h1>
+      <h1>Power BI shape map explorer</h1>
       <p>
-        Preview every Power BI shape map file in this project. Pick a map type to compare the real
-        boundaries with the two hex maps.
+        Preview every map file in this project, from Output Areas in Swansea to councils across the
+        UK. Pick a map type to compare the real boundaries with the two hex maps.
       </p>
-      <p class="notice">
-        <strong>The numbers are synthetic.</strong> They are made up to show how the maps look with
-        data. They are not real statistics.
-      </p>
+      <p class="notice" id="notice"></p>
     </header>
 
     <form id="slicers" class="slicers" aria-label="Filters">
       <fieldset>
-        <legend>Map type</legend>
-        <div class="segmented">
-          <label><input type="radio" name="type" value="geographic" checked /><span>Geographic</span></label>
-          <label><input type="radio" name="type" value="hexmap" /><span>Hexmap</span></label>
-          <label><input type="radio" name="type" value="geogrid" /><span>Geogrid</span></label>
-        </div>
-        <p class="muted" id="type-note" hidden>Some map types are not built for this level.</p>
-      </fieldset>
-      <fieldset>
-        <legend>Version</legend>
-        <div class="segmented">
-          <label><input type="radio" name="year" value="2001" /><span>2001</span></label>
-          <label><input type="radio" name="year" value="2011" /><span>2011</span></label>
-          <label><input type="radio" name="year" value="2021" checked /><span>2021</span></label>
-        </div>
+        <legend><label for="area">Area</label></legend>
+        <select id="area" name="area"></select>
       </fieldset>
       <fieldset>
         <legend>Level</legend>
-        <div class="segmented">
-          <label><input type="radio" name="level" value="msoa" /><span>MSOA</span></label>
-          <label><input type="radio" name="level" value="lsoa" checked /><span>LSOA</span></label>
-          <label><input type="radio" name="level" value="oa" /><span>OA</span></label>
-        </div>
+        <div class="segmented" id="level-options"></div>
       </fieldset>
       <fieldset>
-        <legend>Area</legend>
-        <div class="segmented">
-          <label><input type="radio" name="area" value="swansea-and-neath-port-talbot" checked /><span>Both</span></label>
-          <label><input type="radio" name="area" value="swansea" /><span>Swansea</span></label>
-          <label><input type="radio" name="area" value="neath-port-talbot" /><span>Neath Port Talbot</span></label>
-        </div>
+        <legend>Version</legend>
+        <div class="segmented" id="year-options"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Map type</legend>
+        <div class="segmented" id="type-options"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Data</legend>
+        <div class="segmented" id="data-options"></div>
       </fieldset>
       <fieldset>
         <legend>Measure</legend>
-        <div class="segmented">
-          <label><input type="radio" name="measure" value="population" checked /><span>Population</span></label>
-          <label><input type="radio" name="measure" value="median_age" /><span>Median age</span></label>
-          <label><input type="radio" name="measure" value="index_score" /><span>Index score</span></label>
-        </div>
+        <div class="segmented" id="measure-options"></div>
       </fieldset>
     </form>
 
     <p id="status" class="status" role="status" aria-live="polite"></p>
 
-    <section class="tiles" aria-label="Headline figures">
-      <div class="tile">
-        <span class="tile-label">Areas</span>
-        <span class="tile-value" id="tile-areas">–</span>
-      </div>
-      <div class="tile">
-        <span class="tile-label" id="tile-summary-label">Total</span>
-        <span class="tile-value" id="tile-summary">–</span>
-      </div>
-      <div class="tile">
-        <span class="tile-label">Lowest</span>
-        <span class="tile-value" id="tile-low">–</span>
-        <span class="tile-note" id="tile-low-area"></span>
-      </div>
-      <div class="tile">
-        <span class="tile-label">Highest</span>
-        <span class="tile-value" id="tile-high">–</span>
-        <span class="tile-note" id="tile-high-area"></span>
-      </div>
-    </section>
+    <section class="tiles" id="tiles" aria-label="Headline figures"></section>
 
     <main class="board">
       <section class="card map-card">
@@ -99,7 +60,7 @@
           <svg id="map" role="img" aria-label="Map" preserveAspectRatio="xMidYMid meet"></svg>
           <div id="tooltip" class="tooltip" hidden></div>
         </div>
-        <ul id="legend" class="legend" aria-label="Colour key, lowest to highest"></ul>
+        <ul id="legend" class="legend" aria-label="Colour key, lightest to darkest"></ul>
       </section>
 
       <section class="card">
@@ -117,7 +78,7 @@
             <tr>
               <th scope="col">Code</th>
               <th scope="col">Name</th>
-              <th scope="col">Council</th>
+              <th scope="col">Part of</th>
               <th scope="col" id="table-measure">Value</th>
             </tr>
           </thead>
@@ -128,12 +89,16 @@
 
     <footer class="page-footer">
       <p>
-        Map files, sample data and guides:
+        Map files, data and guides:
         <a href="https://github.com/CodeWithBehnam/map-powerbi">github.com/CodeWithBehnam/map-powerbi</a>
       </p>
       <p>
-        Boundaries: Office for National Statistics licensed under the Open Government Licence v.3.0.
-        Contains OS data © Crown copyright and database right 2026.
+        Boundaries: Office for National Statistics and Welsh Government (DataMapWales), licensed
+        under the Open Government Licence v.3.0. Contains OS data © Crown copyright and database
+        right 2026.
+      </p>
+      <p>
+        WIMD 2025: Welsh Government, licensed under the Open Government Licence v.3.0.
       </p>
     </footer>
   </body>

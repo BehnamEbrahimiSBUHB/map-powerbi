@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="1197" viewBox="0 0 800 1197" stroke-linecap="round" stroke-linejoin="round">
+<g id="in">
+<path d="M 479.2 95.45 479.2 278.36 320.8 369.81 162.4 278.36 162.4 95.45 320.8 4 479.2 95.45 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 479.2 644.17 637.6 552.71 796 644.17 796 827.07 637.6 918.52 479.2 827.07 479.2 644.17 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 162.4 278.36 320.8 369.81 320.8 552.71 162.4 644.17 4 552.71 4 369.81 162.4 278.36 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 479.2 95.45 637.6 4 796 95.45 796 278.36 637.6 369.81 479.2 278.36 479.2 95.45 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 320.8 369.81 479.2 278.36 637.6 369.81 637.6 552.71 479.2 644.17 320.8 552.71 320.8 369.81 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 320.8 918.52 479.2 827.07 637.6 918.52 637.6 1101.43 479.2 1192.88 320.8 1101.43 320.8 918.52 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+<path d="M 320.8 918.52 320.8 1101.43 162.4 1192.88 4 1101.43 4 918.52 162.4 827.07 320.8 918.52 Z" fill="#2a78d6" stroke="#ffffff" stroke-width="1"/>
+</g>
+</svg>
