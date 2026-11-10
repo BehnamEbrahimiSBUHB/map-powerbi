@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="1126" viewBox="0 0 800 1126" stroke-linecap="round" stroke-linejoin="round">
+<g id="in">
+<path d="M 444 359.65 356 308.84 356 207.23 444 156.42 532 207.23 532 308.84 444 359.65 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 620 359.65 532 308.84 532 207.23 620 156.42 708 207.23 708 308.84 620 359.65 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 92 359.65 4 308.84 4 207.23 92 156.42 180 207.23 180 308.84 92 359.65 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 268 359.65 180 308.84 180 207.23 268 156.42 356 207.23 356 308.84 268 359.65 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 180 512.07 92 461.26 92 359.65 180 308.84 268 359.65 268 461.26 180 512.07 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 356 512.07 268 461.26 268 359.65 356 308.84 444 359.65 444 461.26 356 512.07 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 532 512.07 444 461.26 444 359.65 532 308.84 620 359.65 620 461.26 532 512.07 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 268 664.49 180 613.68 180 512.07 268 461.26 356 512.07 356 613.68 268 664.49 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 444 664.49 356 613.68 356 512.07 444 461.26 532 512.07 532 613.68 444 664.49 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 356 816.91 268 766.1 268 664.49 356 613.68 444 664.49 444 766.1 356 816.91 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 620 664.49 532 613.68 532 512.07 620 461.26 708 512.07 708 613.68 620 664.49 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 180 816.91 92 766.1 92 664.49 180 613.68 268 664.49 268 766.1 180 816.91 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 268 969.33 180 918.52 180 816.91 268 766.1 356 816.91 356 918.52 268 969.33 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 444 969.33 356 918.52 356 816.91 444 766.1 532 816.91 532 918.52 444 969.33 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 532 816.91 444 766.1 444 664.49 532 613.68 620 664.49 620 766.1 532 816.91 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 268 969.33 356 918.52 444 969.33 444 1070.95 356 1121.75 268 1070.95 268 969.33 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 180 207.23 92 156.42 92 54.81 180 4 268 54.81 268 156.42 180 207.23 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+<path d="M 708 512.07 620 461.26 620 359.65 708 308.84 796 359.65 796 461.26 708 512.07 Z" fill="#d95926" stroke="#ffffff" stroke-width="0.8"/>
+</g>
+</svg>

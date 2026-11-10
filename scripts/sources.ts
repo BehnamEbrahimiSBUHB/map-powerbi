@@ -8,6 +8,25 @@ export const ONS_SERVICES_URL =
 
 export type Level = "oa" | "lsoa" | "msoa" | "council";
 
+/** R packages that turn each area into one equal-sized hexagon. See scripts/hex.R. */
+export type HexMethod = "hexmap" | "geogrid";
+
+/** The kinds of map built for each level, year and council. */
+export type MapType = "geographic" | HexMethod;
+
+export const HEX_METHODS: readonly HexMethod[] = ["hexmap", "geogrid"];
+
+/**
+ * Levels each hex method is built for. The council outline is left out: it would
+ * be one hexagon. geogrid is left out of OA because its matching step grows with
+ * the cube of the area count: about 2 minutes for 240 areas, hours for 1,291.
+ * Add "oa" to switch it on.
+ */
+export const HEX_LEVELS: Readonly<Record<HexMethod, readonly Level[]>> = {
+  hexmap: ["oa", "lsoa", "msoa"],
+  geogrid: ["lsoa", "msoa"],
+};
+
 export interface Council {
   readonly slug: string;
   /** Name as used by ONS, e.g. as the prefix of LSOA names. */

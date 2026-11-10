@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swansea and Neath Port Talbot map explorer</title>
+    <meta
+      name="description"
+      content="Preview the Power BI shape map files for Swansea and Neath Port Talbot as geographic, hexmap and geogrid maps, using synthetic sample data."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="assets/main.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Swansea and Neath Port Talbot map explorer</h1>
+      <p>
+        Preview every Power BI shape map file in this project. Pick a map type to compare the real
+        boundaries with the two hex maps.
+      </p>
+      <p class="notice">
+        <strong>The numbers are synthetic.</strong> They are made up to show how the maps look with
+        data. They are not real statistics.
+      </p>
+    </header>
+
+    <form id="slicers" class="slicers" aria-label="Filters">
+      <fieldset>
+        <legend>Map type</legend>
+        <div class="segmented">
+          <label><input type="radio" name="type" value="geographic" checked /><span>Geographic</span></label>
+          <label><input type="radio" name="type" value="hexmap" /><span>Hexmap</span></label>
+          <label><input type="radio" name="type" value="geogrid" /><span>Geogrid</span></label>
+        </div>
+        <p class="muted" id="type-note" hidden>Geogrid is built for MSOA and LSOA only.</p>
+      </fieldset>
+      <fieldset>
+        <legend>Version</legend>
+        <div class="segmented">
+          <label><input type="radio" name="year" value="2001" /><span>2001</span></label>
+          <label><input type="radio" name="year" value="2011" /><span>2011</span></label>
+          <label><input type="radio" name="year" value="2021" checked /><span>2021</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Level</legend>
+        <div class="segmented">
+          <label><input type="radio" name="level" value="msoa" /><span>MSOA</span></label>
+          <label><input type="radio" name="level" value="lsoa" checked /><span>LSOA</span></label>
+          <label><input type="radio" name="level" value="oa" /><span>OA</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Area</legend>
+        <div class="segmented">
+          <label><input type="radio" name="area" value="swansea-and-neath-port-talbot" checked /><span>Both</span></label>
+          <label><input type="radio" name="area" value="swansea" /><span>Swansea</span></label>
+          <label><input type="radio" name="area" value="neath-port-talbot" /><span>Neath Port Talbot</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Measure</legend>
+        <div class="segmented">
+          <label><input type="radio" name="measure" value="population" checked /><span>Population</span></label>
+          <label><input type="radio" name="measure" value="median_age" /><span>Median age</span></label>
+          <label><input type="radio" name="measure" value="index_score" /><span>Index score</span></label>
+        </div>
+      </fieldset>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section class="tiles" aria-label="Headline figures">
+      <div class="tile">
+        <span class="tile-label">Areas</span>
+        <span class="tile-value" id="tile-areas">–</span>
+      </div>
+      <div class="tile">
+        <span class="tile-label" id="tile-summary-label">Total</span>
+        <span class="tile-value" id="tile-summary">–</span>
+      </div>
+      <div class="tile">
+        <span class="tile-label">Lowest</span>
+        <span class="tile-value" id="tile-low">–</span>
+        <span class="tile-note" id="tile-low-area"></span>
+      </div>
+      <div class="tile">
+        <span class="tile-label">Highest</span>
+        <span class="tile-value" id="tile-high">–</span>
+        <span class="tile-note" id="tile-high-area"></span>
+      </div>
+    </section>
+
+    <main class="board">
+      <section class="card map-card">
+        <h2 id="map-title">Map</h2>
+        <p class="muted" id="map-type"></p>
+        <div id="map-frame" class="map-frame">
+          <svg id="map" role="img" aria-label="Map" preserveAspectRatio="xMidYMid meet"></svg>
+          <div id="tooltip" class="tooltip" hidden></div>
+        </div>
+        <ul id="legend" class="legend" aria-label="Colour key, lowest to highest"></ul>
+      </section>
+
+      <section class="card">
+        <h2 id="ranked-title">Highest 10</h2>
+        <p class="muted">Point at a row to find the area on the map.</p>
+        <ol id="ranked" class="ranked"></ol>
+      </section>
+    </main>
+
+    <details class="card table-card">
+      <summary>Show the data as a table</summary>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Name</th>
+              <th scope="col">Council</th>
+              <th scope="col" id="table-measure">Value</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </details>
+
+    <footer class="page-footer">
+      <p>
+        Map files, sample data and guides:
+        <a href="https://github.com/CodeWithBehnam/map-powerbi">github.com/CodeWithBehnam/map-powerbi</a>
+      </p>
+      <p>
+        Boundaries: Office for National Statistics licensed under the Open Government Licence v.3.0.
+        Contains OS data © Crown copyright and database right 2026.
+      </p>
+    </footer>
+  </body>
+</html>

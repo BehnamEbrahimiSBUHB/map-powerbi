@@ -1,4 +1,9 @@
 node_modules/
-# Raw ONS downloads, rebuilt by `bun run build`
+# Raw ONS downloads and computed hexagons, rebuilt by `bun run build`
 .cache/
+# Dashboard build output, rebuilt by `bun run site:build`
+_site/
+# Local Claude Code files
+.claude/
+CLAUDE.md
 .DS_Store

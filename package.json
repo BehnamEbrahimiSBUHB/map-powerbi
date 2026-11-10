@@ -6,9 +6,17 @@
   "type": "module",
   "scripts": {
     "build": "bun run scripts/build.ts",
-    "build:refresh": "bun run scripts/build.ts --refresh"
+    "build:refresh": "bun run scripts/build.ts --refresh",
+    "build:rehex": "bun run scripts/build.ts --rehex",
+    "data": "bun run scripts/synthetic.ts",
+    "check": "bun run scripts/check.ts",
+    "typecheck": "tsc --noEmit",
+    "site:build": "bun run scripts/site.ts",
+    "site:serve": "bun run scripts/site.ts --serve"
   },
   "devDependencies": {
-    "mapshaper": "^0.7.101"
+    "@types/bun": "^1.4.4",
+    "mapshaper": "^0.7.101",
+    "typescript": "^7.0.2"
   }
 }

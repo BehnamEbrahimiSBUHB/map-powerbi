@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to use a map in Power BI
+    url: https://github.com/CodeWithBehnam/map-powerbi/blob/main/docs/power-bi-guide.md
+    about: Step-by-step guide and fixes for common problems. Check here first.
