@@ -29,6 +29,8 @@ Rebuilding the hex maps also needs R 4.1 or newer with four packages. See [Insta
 | `bun run check` | Checks every map file, image and sample data file. | Bun |
 | `bun run site:serve` | Builds the dashboard and serves it at `http://127.0.0.1:4173`. | Bun |
 | `bun run data` | Rewrites the synthetic sample data. | Bun, a finished build |
+| `bun run wimd` | Downloads WIMD 2025 from DataMapWales again. | Bun, internet |
+| `bun run catalogue` | Rewrites `docs/map-files.md` from the map files. | Bun |
 | `bun run build` | Rebuilds `maps/` and `images/`, reusing downloads and hexagons in `.cache/`. | Bun, R |
 | `bun run build:rehex` | Same, but computes the hexagons again. Slow. | Bun, R |
 | `bun run build:refresh` | Downloads from ONS again and rebuilds everything. Slowest. | Bun, R, internet |
@@ -37,10 +39,12 @@ Rebuilding the hex maps also needs R 4.1 or newer with four packages. See [Insta
 
 | Path | What it holds | Edit by hand? |
 |---|---|---|
-| `scripts/sources.ts` | Which ONS layers, councils and hex methods to build. | Yes |
+| `scripts/sources.ts` | Which layers, areas and map types to build. | Yes |
 | `scripts/build.ts`, `scripts/hex.R` | The build. | Yes |
 | `maps/`, `images/` | Generated map files and previews. | No. Change the scripts and rebuild. |
 | `data/synthetic/` | Generated sample data. | No. Change `scripts/synthetic.ts`. |
+| `data/wimd/` | WIMD 2025, downloaded from DataMapWales. | No. Run `bun run wimd`. |
+| `docs/map-files.md` | Generated list of every map file. | No. Run `bun run catalogue`. |
 | `site/` | The dashboard source. | Yes |
 | `docs/` | The guides. | Yes |
 
@@ -50,7 +54,7 @@ Generated files are committed, because people download them straight from GitHub
 
 1. Run `bun run typecheck` and `bun run check`.
 2. If you changed the maps or the dashboard, run `bun run site:serve` and look at the page.
-3. If paths, area counts or map keys changed, update `README.md` and the guides.
+3. If the map files changed, run `bun run catalogue`. If paths, area counts or map keys changed, update `README.md` and the guides.
 4. Keep the change small and say what you checked in the pull request.
 
 ## Style
@@ -63,6 +67,6 @@ Generated files are committed, because people download them straight from GitHub
 ## Licences
 
 - Code and guides: [MIT](LICENSE).
-- Boundary data: [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/), from the Office for National Statistics. Keep the attribution in `README.md`.
+- Boundary data and WIMD 2025: [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/), from the Office for National Statistics and the Welsh Government. Keep the attribution in `README.md`.
 
 By contributing, you agree that your work is released under the MIT licence.
