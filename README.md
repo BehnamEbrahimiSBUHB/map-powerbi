@@ -28,7 +28,7 @@ Ready-to-use map files for the Power BI **Shape map** visual: real boundaries an
 
 ## Quick start
 
-1. **See it first.** Open the [live dashboard](https://codewithbehnam.github.io/map-powerbi/) and switch between areas and map types.
+1. **See it first.** Open the [live dashboard](https://BehnamEbrahimiSBUHB.github.io/map-powerbi/) and switch between areas and map types.
 2. **Pick a file** from the [catalogue](docs/map-files.md) and download it.
 3. **Load it** into a Shape map visual by following [Use a file in Power BI](#use-a-file-in-power-bi).
 
