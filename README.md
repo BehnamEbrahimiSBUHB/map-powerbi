@@ -4,7 +4,7 @@ Ready-to-use map files for the Power BI **Shape map** visual: real boundaries an
 
 [![Check](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/check.yml/badge.svg)](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/check.yml)
 [![Deploy site](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/pages.yml/badge.svg)](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/pages.yml)
-[![Dashboard: live](https://img.shields.io/badge/dashboard-live-2a78d6)](https://codewithbehnam.github.io/map-powerbi/)
+[![Dashboard: live](https://img.shields.io/badge/dashboard-live-2a78d6)](https://BehnamEbrahimiSBUHB.github.io/map-powerbi/)
 [![Power BI: Shape map](https://img.shields.io/badge/Power%20BI-Shape%20map-F2C811)](docs/power-bi-guide.md)
 [![Map files: 180](https://img.shields.io/badge/map%20files-180-informational)](docs/map-files.md)
 [![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
