@@ -2,8 +2,8 @@
 
 Ready-to-use map files for the Power BI **Shape map** visual: real boundaries and hex maps, from Output Areas in Swansea to councils across the UK.
 
-[![Check](https://github.com/CodeWithBehnam/map-powerbi/actions/workflows/check.yml/badge.svg)](https://github.com/CodeWithBehnam/map-powerbi/actions/workflows/check.yml)
-[![Deploy site](https://github.com/CodeWithBehnam/map-powerbi/actions/workflows/pages.yml/badge.svg)](https://github.com/CodeWithBehnam/map-powerbi/actions/workflows/pages.yml)
+[![Check](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/check.yml/badge.svg)](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/check.yml)
+[![Deploy site](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/pages.yml/badge.svg)](https://github.com/BehnamEbrahimiSBUHB/map-powerbi/actions/workflows/pages.yml)
 [![Dashboard: live](https://img.shields.io/badge/dashboard-live-2a78d6)](https://codewithbehnam.github.io/map-powerbi/)
 [![Power BI: Shape map](https://img.shields.io/badge/Power%20BI-Shape%20map-F2C811)](docs/power-bi-guide.md)
 [![Map files: 180](https://img.shields.io/badge/map%20files-180-informational)](docs/map-files.md)
@@ -12,7 +12,7 @@ Ready-to-use map files for the Power BI **Shape map** visual: real boundaries an
 
 **[Open the live dashboard](https://codewithbehnam.github.io/map-powerbi/)** · [Pick a file](#pick-a-file) · [Use it in Power BI](#use-a-file-in-power-bi) · [Guides](#guides)
 
-[![The map explorer dashboard showing 2021 LSOAs in the Swansea Bay health board area as a hexmap, coloured by WIMD 2025](docs/images/dashboard.png)](https://codewithbehnam.github.io/map-powerbi/)
+[![The map explorer dashboard showing 2021 LSOAs in the Swansea Bay health board area as a hexmap, coloured by WIMD 2025](docs/images/dashboard.png)](https://BehnamEbrahimiSBUHB.github.io/map-powerbi/)
 
 ## At a glance
 
