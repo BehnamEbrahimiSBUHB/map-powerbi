@@ -10,7 +10,7 @@ Ready-to-use map files for the Power BI **Shape map** visual: real boundaries an
 [![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 [![Data: OGL v3.0](https://img.shields.io/badge/data-OGL%20v3.0-brightgreen)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
 
-**[Open the live dashboard](https://codewithbehnam.github.io/map-powerbi/)** · [Pick a file](#pick-a-file) · [Use it in Power BI](#use-a-file-in-power-bi) · [Guides](#guides)
+**[Open the live dashboard](https://BehnamEbrahimiSBUHB.github.io/map-powerbi/)** · [Pick a file](#pick-a-file) · [Use it in Power BI](#use-a-file-in-power-bi) · [Guides](#guides)
 
 [![The map explorer dashboard showing 2021 LSOAs in the Swansea Bay health board area as a hexmap, coloured by WIMD 2025](docs/images/dashboard.png)](https://BehnamEbrahimiSBUHB.github.io/map-powerbi/)
 
